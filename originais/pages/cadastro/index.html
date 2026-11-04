@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08068d">
+  <title>Bem-vindo | Bulbe</title>
+  <link rel="stylesheet" href="cadastro.css">
+  <script src="jornada.js" defer></script>
+  <script src="cadastro.js" defer></script>
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <a class="pular" href="#tela-inicial">Ir ao conteúdo</a>
+  <div class="aparelho">
+<main class="app app--acesso" id="tela-inicial">
+        <div class="barra-status" aria-label="Barra de status ilustrativa">
+            <span class="horario-status">9:41</span>
+            <div class="status-direita">
+                <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+                <span class="rede-status">4G</span>
+                <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+            </div>
+        </div>
+    <div class="abertura">
+      <img class="padrao padrao--superior" src="assets/img/padrao-superior.svg" alt="">
+      <img class="padrao padrao--inferior" src="assets/img/padrao-inferior.svg" alt="">
+      <div class="marca" role="img" aria-label="Bulbe, sua próxima energia">
+        <img class="marca__simbolo" src="assets/img/marca.svg" alt="">
+        <img class="marca__assinatura" src="assets/img/assinatura.svg" alt="">
+      </div>
+    </div>
+    <section class="boas-vindas" aria-labelledby="titulo">
+      <div class="introducao">
+        <h1 id="titulo">Bem vindo!</h1>
+        <p class="subtitulo">Entre para acessar a área do cliente Bulbe</p>
+      </div>
+      <div class="pilha">
+        <a class="botao" href="#acesso">Entrar</a>
+        <a class="botao botao--secundario" href="#acesso">Primeiro acesso</a>
+      </div>
+      <div class="convite">
+        <p>Não é um cliente Bulbe?</p>
+        <a href="#cadastro">Quero economizar</a>
+      </div>
+    </section>
+  </main>
+    </div>
+
+    <div class="aparelho">
+<section class="app acesso-email" id="tela-sem-conta" aria-labelledby="titulo-sem-conta" hidden>
+        <div class="barra-status" aria-label="Barra de status ilustrativa">
+            <span class="horario-status">9:41</span>
+            <div class="status-direita">
+                <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+                <span class="rede-status">4G</span>
+                <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+            </div>
+        </div>
+        <header class="cabecalho-acesso">
+            <a class="voltar-acesso" href="#acesso" aria-label="Voltar ao acesso">←</a>
+            <div class="logo-acesso"><img src="assets/img/logo-azul.svg" alt="Bulbe"></div>
+        </header>
+        <div class="conteudo-acesso">
+            <div class="titulo-acesso">
+                <h1 id="titulo-sem-conta" tabindex="-1">Você ainda não tem uma conta Bulbe.</h1>
+                <p>Comece seu cadastro e dê o primeiro passo para economizar na conta de luz.</p>
+            </div>
+            <div class="convite-cadastro">
+                <a class="botao" href="#cadastro">Quero economizar</a>
+                <a class="botao botao--secundario" href="#acesso">Usar outro e-mail</a>
+                <p class="nota">Protótipo demonstrativo. Use apenas dados fictícios.</p>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <div class="aparelho">
+<main class="app acesso-email jornada" id="jornada" hidden>
+        <div class="barra-status" aria-label="Barra de status ilustrativa">
+            <span class="horario-status">9:41</span>
+            <div class="status-direita">
+                <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+                <span class="rede-status">4G</span>
+                <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+            </div>
+        </div>
+        <header class="cabecalho-acesso">
+            <a class="voltar-acesso" id="voltar-etapa" href="#sem-conta" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4-6 6 6 6M3 10h10a7 7 0 0 1 7 7v5"/></svg>
+            </a>
+            <div class="logo-acesso"><img src="assets/img/logo-azul.svg" alt="Bulbe"></div>
+        </header>
+        <div class="cartao-jornada">
+            <header class="progresso-jornada" id="progresso-jornada">
+                <div class="progresso-titulo"><strong id="nome-etapa">Seus dados</strong><strong id="percentual-etapa">25%</strong></div>
+                <div class="trilho-progresso" id="barra-progresso" role="progressbar" aria-label="Progresso do cadastro" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25"><span></span></div>
+                <div class="ajuda-jornada"><span>Precisa de ajuda?</span><a href="https://a.bulbe.com.br" target="_blank" rel="noopener noreferrer"><img src="assets/img/atendimento.svg" alt="">Atendimento</a></div>
+            </header>
+
+            <section class="etapa-conteudo" id="passo-cadastro" aria-labelledby="titulo-cadastro" hidden>
+                <h1 id="titulo-cadastro" tabindex="-1">Faça seu cadastro</h1>
+                <p class="descricao-etapa">Informe seus dados para começar sua jornada com a Bulbe.</p>
+                <form class="formulario-jornada" id="form-dados">
+                    <div class="campo-jornada"><label for="nome">Nome completo <span>*</span></label><input id="nome" name="nome" placeholder="Helena Martins" autocomplete="name" required></div>
+                    <div class="campo-jornada"><label for="titularidade">A conta de luz está no seu nome? <span>*</span></label><select id="titularidade" name="titularidade" required><option value="Sou titular da conta de luz">Sim, sou titular</option><option value="A conta está em nome de outra pessoa">Não, está em nome de outra pessoa</option></select></div>
+                    <div class="campo-jornada"><label for="cpf">CPF do solicitante <span>*</span></label><input id="cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" aria-describedby="ajuda-cpf" required><small id="ajuda-cpf">Use apenas dados fictícios neste protótipo.</small></div>
+                    <div class="campo-jornada"><label for="email-cadastro">E-mail <span>*</span></label><input id="email-cadastro" name="email" type="email" placeholder="helena@example.com" autocomplete="email" autocapitalize="none" required></div>
+                    <div class="campo-jornada"><label for="telefone">Celular com DDD <span>*</span></label><input id="telefone" name="telefone" type="tel" placeholder="(31) 99999-0000" autocomplete="tel" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" required></div>
+                    <div class="campo-jornada">
+                        <label for="senha">Criar senha <span>*</span></label>
+                        <div class="entrada-senha"><input id="senha" name="senha" type="password" autocomplete="new-password" minlength="8" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,}" aria-describedby="ajuda-senha" required><button class="alternar-senha" type="button" aria-label="Mostrar senha" aria-controls="senha" aria-pressed="false" data-alternar-senha="senha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path class="risco-olho" d="m3 3 18 18"/></svg></button></div>
+                        <small id="ajuda-senha">Use pelo menos 8 caracteres, com uma letra maiúscula, um número e um caractere especial.</small>
+                    </div>
+                    <div class="campo-jornada">
+                        <label for="confirmar-senha">Confirmar senha <span>*</span></label>
+                        <div class="entrada-senha"><input id="confirmar-senha" name="confirmar-senha" type="password" autocomplete="new-password" aria-describedby="ajuda-confirmar-senha" required><button class="alternar-senha" type="button" aria-label="Mostrar confirmação de senha" aria-controls="confirmar-senha" aria-pressed="false" data-alternar-senha="confirmar-senha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path class="risco-olho" d="m3 3 18 18"/></svg></button></div>
+                        <small id="ajuda-confirmar-senha">Digite novamente a mesma senha.</small>
+                    </div>
+                    <div class="acoes-jornada"><button class="botao-jornada" type="submit">Continuar <span aria-hidden="true">→</span></button></div>
+                </form>
+            </section>
+
+            <section class="etapa-conteudo" id="passo-recebimento" aria-labelledby="titulo-recebimento" hidden>
+                <h1 id="titulo-recebimento" tabindex="-1">Veja o mês. Escolha sua semana.</h1>
+                <p class="descricao-etapa">Toque em uma faixa para selecionar a semana inteira.</p>
+                <div class="cabecalho-calendario"><h2>Seu mês na Bulbe</h2><span>4 períodos</span></div>
+                <div class="cabecalho-dias" aria-hidden="true"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>
+                <div class="semanas" role="group" aria-label="Semana de recebimento">
+                        <button class="semana" type="button" data-semana="1" aria-pressed="false" aria-label="1ª semana do mês">
+                            <span class="dias-semana" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></span>
+                            <span class="nome-semana">1ª semana <span class="marca-semana" aria-hidden="true">✓</span></span>
+                        </button>
+                        <button class="semana" type="button" data-semana="2" aria-pressed="true" aria-label="2ª semana do mês">
+                            <span class="dias-semana" aria-hidden="true"><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></span>
+                            <span class="nome-semana">2ª semana <span class="marca-semana" aria-hidden="true">✓</span></span>
+                        </button>
+                        <button class="semana" type="button" data-semana="3" aria-pressed="false" aria-label="3ª semana do mês">
+                            <span class="dias-semana" aria-hidden="true"><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span></span>
+                            <span class="nome-semana">3ª semana <span class="marca-semana" aria-hidden="true">✓</span></span>
+                        </button>
+                        <button class="semana" type="button" data-semana="4" aria-pressed="false" aria-label="4ª semana do mês">
+                            <span class="dias-semana" aria-hidden="true"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></span>
+                            <span class="nome-semana">4ª semana <span class="marca-semana" aria-hidden="true">✓</span></span>
+                        </button>
+                </div>
+                <p class="legenda-calendario">Calendário ilustrativo: os números ajudam a visualizar os períodos. A preferência é pela semana inteira.</p>
+                <div class="resumo-semana"><strong class="numero-semana" id="numero-semana">2ª</strong><div><small>SUA PREFERÊNCIA</small><strong id="texto-semana">2ª semana de cada mês</strong></div></div>
+                <p class="observacao-jornada">Preferência de recebimento, sujeita ao ciclo de faturamento da Bulbe. A escolha indica uma semana, sem definir um dia exato de chegada ou vencimento.</p>
+                <div class="acoes-jornada"><a class="botao-jornada voltar-jornada" href="#cadastro">← Voltar</a><button class="botao-jornada" id="confirmar-semana" type="button">Confirmar preferência →</button></div>
+            </section>
+
+            <section class="etapa-conteudo" id="passo-comunicacao" aria-labelledby="titulo-comunicacao" hidden>
+                <h1 id="titulo-comunicacao" tabindex="-1">Vamos manter você por perto?</h1>
+                <p class="descricao-etapa">Escolha uma ou mais opções para receber o andamento do cadastro, os avisos e suas faturas.</p>
+                <form id="form-canal">
+                    <fieldset class="opcoes-contato"><legend class="apenas-leitor">Canais de comunicação</legend>
+                    <label class="canal-contato">
+                        <input type="checkbox" name="canal" value="WhatsApp" checked>
+                        <span><strong>WhatsApp</strong><small>No celular informado no cadastro.</small></span>
+                    </label>
+                    <label class="canal-contato">
+                        <input type="checkbox" name="canal" value="E-mail" >
+                        <span><strong>E-mail</strong><small>Direto na sua caixa de entrada.</small></span>
+                    </label>
+                    <label class="canal-contato">
+                        <input type="checkbox" name="canal" value="SMS" >
+                        <span><strong>SMS</strong><small>Por mensagem de texto no celular.</small></span>
+                    </label>
+                    </fieldset>
+                    <p class="aviso-verde">Você confere seus contatos e os canais escolhidos na próxima etapa.</p>
+                    <div class="acoes-jornada"><a class="botao-jornada voltar-jornada" href="#recebimento">← Voltar</a><button class="botao-jornada" id="revisar-dados" type="submit">Revisar dados →</button></div>
+                </form>
+            </section>
+
+            <section class="etapa-conteudo" id="passo-confirmacao" aria-labelledby="titulo-confirmacao" hidden>
+                <h1 id="titulo-confirmacao" tabindex="-1">Quase lá! Confira seus dados</h1>
+                <p class="descricao-etapa">Veja se está tudo certo antes de confirmar. Você pode editar as informações abaixo.</p>
+                <dl class="revisao-dados">
+                    <div><dt>Nome completo</dt><dd id="revisao-nome"></dd></div>
+                    <div><dt>Titularidade da conta de luz</dt><dd id="revisao-titularidade"></dd></div>
+                    <div><dt>CPF do solicitante</dt><dd id="revisao-cpf"></dd></div>
+                    <div><dt>E-mail</dt><dd id="revisao-email"></dd></div>
+                    <div><dt>Celular</dt><dd id="revisao-telefone"></dd></div>
+                </dl>
+                <a class="editar-jornada" href="#cadastro" data-editar>Editar meus dados</a>
+                <div class="preferencias-revisao">
+                    <dl><div><dt>Preferência de recebimento da conta</dt><dd id="revisao-semana"></dd></div></dl>
+                    <a class="editar-jornada" href="#recebimento" data-editar>Alterar semana</a>
+                    <dl><div><dt>Canais escolhidos</dt><dd id="revisao-canal"></dd></div></dl>
+                    <a class="editar-jornada" href="#comunicacao" data-editar>Alterar canais</a>
+                </div>
+                <form id="form-confirmacao">
+                    <label class="aceite-cadastro"><input type="checkbox" id="conferi-dados" required><span>Conferi meus dados, a semana de preferência e os canais escolhidos para receber comunicações sobre meu cadastro e minhas faturas.</span></label>
+                    <div class="acoes-jornada"><a class="botao-jornada voltar-jornada" href="#comunicacao">← Voltar</a><button class="botao-jornada" id="finalizar-cadastro" type="submit" disabled>Confirmar cadastro</button></div>
+                </form>
+            </section>
+
+            <section class="etapa-conteudo conclusao-jornada" id="passo-concluido" aria-labelledby="titulo-concluido" hidden>
+                <span class="sinal-concluido" aria-hidden="true">✓</span>
+                <h1 id="titulo-concluido" tabindex="-1">Tudo pronto!</h1>
+                <p class="descricao-etapa">Você concluiu todas as etapas do cadastro demonstrativo.</p>
+                <p class="aviso-verde">Nenhum dado foi enviado à Bulbe.</p>
+                <a class="botao-jornada" href="#inicio">Voltar ao início</a>
+            </section>
+        </div>
+        <p class="rodape-jornada">Protótipo demonstrativo. Use apenas dados fictícios.</p>
+    </main>
+    </div>
+
+    <div class="aparelho">
+<div class="app acesso-email" id="tela-acesso" hidden>
+        <div class="barra-status" aria-label="Barra de status ilustrativa">
+            <span class="horario-status">9:41</span>
+            <div class="status-direita">
+                <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+                <span class="rede-status">4G</span>
+                <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+            </div>
+        </div>
+        <header class="cabecalho-acesso">
+            <a class="voltar-acesso" href="index.html" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4-6 6 6 6M3 10h10a7 7 0 0 1 7 7v5"/></svg>
+            </a>
+            <div class="logo-acesso"><img src="assets/img/logo-azul.svg" alt="Bulbe"></div>
+        </header>
+
+        <main class="conteudo-acesso" id="conteudo">
+            <div class="titulo-acesso">
+                <h1>Vamos acessar a sua conta Bulbe.</h1>
+                <p>Informe o e-mail cadastrado na Bulbe.</p>
+            </div>
+
+            <form class="formulario-acesso" id="formulario-acesso">
+                <div class="campo-email">
+                    <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                    <div class="entrada-email">
+                        <input id="email" name="email" type="email" placeholder="exemplo@email.com" autocomplete="email" autocapitalize="none" spellcheck="false" required>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M7 14h1a7 7 0 0 0 8 0h1a4 4 0 0 1 4 4v3H3v-3a4 4 0 0 1 4-4Z"/></svg>
+                    </div>
+                </div>
+
+                <div class="aceite-termos">
+                    <input class="chave-aceite" id="aceite" name="aceite" type="checkbox" role="switch" aria-labelledby="texto-aceite" required>
+                    <p id="texto-aceite">
+                        <label for="aceite">Ao vincular minha conta ao Aplicativo Bulbe, declaro que estou ciente dos</label>
+                        <a href="https://bulbeenergia.com.br/termos-de-uso/" target="_blank" rel="noopener noreferrer">Termos de Uso</a> e
+                        <a href="https://bulbeenergia.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.
+                    </p>
+                </div>
+
+                <div class="confirmacao-acesso">
+                    <p id="aviso-acesso" role="status" hidden></p>
+                    <button class="confirmar-acesso" id="confirmar" type="submit" disabled>Confirmar</button>
+                </div>
+            </form>
+        </main>
+    </div>
+    </div>
+
+</body>
+</html>
+

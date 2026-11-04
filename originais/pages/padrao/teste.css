@@ -1,0 +1,237 @@
+/* Conteúdo de exemplo. A estrutura fixa usa estilo.css. */
+.cartao-teste {
+    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 16px;
+    background: var(--branco);
+    box-shadow: 0 2px 8px rgb(8 6 141 / 5%);
+}
+
+.cartao-teste:last-child {
+    margin-bottom: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h1,
+h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+h2 {
+    color: var(--azul);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.texto-suave,
+.niveis p,
+.opcoes-pontos p,
+.movimentacoes p {
+    color: #8b9fb3;
+    font-size: 11px;
+}
+
+.resumo-pontos,
+.titulo-jornada {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.resumo-pontos > div {
+    padding-left: 8px;
+    border-left: 3px solid var(--azul);
+}
+
+.nivel {
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: #e8eafe;
+    color: var(--azul);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.saldo {
+    margin: 12px 0;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.saldo span {
+    color: #8b9fb3;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.desconto {
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #19b571;
+    color: var(--branco);
+    font-size: 11px;
+}
+
+.desconto > span {
+    position: absolute;
+    right: 12px;
+    top: 4px;
+    font-size: 22px;
+}
+
+.titulo-jornada > span {
+    color: #8b9fb3;
+    font-size: 10px;
+}
+
+progress {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin: 10px 0 16px;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #e1e6ea;
+}
+
+progress::-webkit-progress-bar {
+    background: #e1e6ea;
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--azul), var(--verde));
+}
+
+progress::-moz-progress-bar {
+    background: linear-gradient(90deg, var(--azul), var(--verde));
+}
+
+.niveis,
+.opcoes-pontos,
+.movimentacoes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.niveis {
+    margin-bottom: 20px;
+}
+
+.niveis li {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 64px;
+}
+
+.niveis li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    bottom: 0;
+    left: 11px;
+    width: 1px;
+    background: var(--cinza);
+}
+
+.marcador {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--cinza);
+    border-radius: 50%;
+    background: var(--branco);
+    color: var(--branco);
+    font-size: 13px;
+}
+
+.nivel-concluido .marcador {
+    border-color: #19b571;
+    background: #19b571;
+}
+
+.nivel-atual .marcador {
+    border-color: #ff9e1b;
+    background: #ff9e1b;
+}
+
+.nivel-atual strong {
+    color: #cf7800;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.opcoes-pontos li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+}
+
+.opcoes-pontos li + li,
+.movimentacoes li + li {
+    border-top: 1px solid #e8edf2;
+}
+
+.opcoes-pontos li > span:last-child {
+    margin-left: auto;
+    color: #8b9fb3;
+    font-size: 22px;
+}
+
+.icone-opcao {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.verde {
+    background: #ecfdf3;
+    color: #19b571;
+}
+
+.laranja {
+    background: #fff3df;
+    color: #e88a00;
+}
+
+.azul {
+    background: #e8eafe;
+    color: var(--azul);
+}
+
+.movimentacoes li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 0;
+}
+
+.movimentacoes strong {
+    color: #18814d;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.fim-teste p {
+    margin-top: 12px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08068d">
+    <title>Bulbe | Tela padrão</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <a class="pular-conteudo" href="#conteudo">Ir ao conteúdo</a>
+
+    <div class="aparelho">
+<div class="tela">
+        <!-- Barra de status visual para a prévia do aplicativo. -->
+        <div class="barra-status" aria-label="Barra de status ilustrativa">
+            <span class="horario-status">9:41</span>
+            <div class="status-direita">
+                <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+                <span class="rede-status">4G</span>
+                <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+            </div>
+        </div>
+
+        <header class="cabecalho">
+            <div class="barra-superior">
+                <button class="botao-icone" type="button" aria-label="Abrir menu">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+
+                <img class="logo" src="assets/img/logo-cabecalho.svg" alt="Bulbe">
+
+                <div class="atalhos">
+                    <button class="botao-icone" type="button" aria-label="Notificações">
+                        <img src="assets/img/notificacao.svg" alt="">
+                    </button>
+                    <button class="botao-icone" type="button" aria-label="Meu perfil">
+                        <span class="avatar" aria-hidden="true">AM</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="faixa-indicacao">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/></svg>
+                <p>Indique e ganhe <strong>500 pontos</strong> por amigo conectado</p>
+            </div>
+        </header>
+
+        <main class="conteudo" id="conteudo" tabindex="-1">
+            <!-- Adicionar aqui o conteúdo de cada tela. -->
+        </main>
+
+        <!-- Ligar os botões às respectivas telas ao implementar a navegação.
+             Mover aria-current="page" para o item da tela que estiver aberta. -->
+        <footer class="rodape">
+            <nav class="navegacao" aria-label="Navegação principal">
+                <button class="item-menu" type="button" data-tela="conexao">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>
+                    <span>Conexão</span>
+                </button>
+                <button class="item-menu" type="button" data-tela="pontos" aria-current="page">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/></svg>
+                    <span>Pontos</span>
+                </button>
+                <button class="item-menu" type="button" data-tela="indicacoes">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M19 7v6M16 10h6"/></svg>
+                    <span>Indicações</span>
+                </button>
+            </nav>
+        </footer>
+    </div>
+    </div>
+</body>
+</html>

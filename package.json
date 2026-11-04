@@ -1,0 +1,10 @@
+{
+  "name": "apresentacao-bulbe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Apresentação da Sprint II do projeto Bulbe",
+  "scripts": {
+    "build": "python3 src/build_original_presentation.py",
+    "dev": "node server.mjs"
+  }
+}

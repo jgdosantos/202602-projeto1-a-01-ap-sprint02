@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08068d">
+  <title>Período de 2 contas | Bulbe</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="onboarding.css">
+  <link rel="stylesheet" href="mobile.css">
+  <script src="onboarding.js" defer></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Ir ao conteúdo</a>
+
+
+  <div class="aparelho">
+    <div class="app onboarding" id="conteudo" tabindex="-1">
+
+      <div class="barra-status" aria-label="Barra de status ilustrativa">
+        <span class="horario-status">9:41</span>
+        <div class="status-direita">
+          <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+          <span class="rede-status">4G</span>
+          <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+        </div>
+      </div>
+
+      <!-- ===================== Tela 1 · Apresentação ===================== -->
+      <section class="vista vista--onboarding" id="tela1" aria-labelledby="titulo-tela1" hidden>
+        <div class="vista__conteudo vista__conteudo--hero">
+          <div class="logo-h4"><img src="assets/img/logo-azul.svg" alt="Bulbe"></div>
+
+          <h1 class="titulo-hero" id="titulo-tela1" tabindex="-1" aria-describedby="etapa-atual">Conta de luz mais barata.</h1>
+          <p class="apoio-hero">Sem obra. Sem instalar nada.</p>
+
+          <ol class="linha-tempo" aria-label="Como funciona">
+            <li class="passo passo--feito">
+              <span class="passo__marcador" aria-hidden="true">1</span>
+              <div class="passo__texto">
+                <span class="passo__quando">Hoje</span>
+                <strong>Adesão</strong>
+              </div>
+            </li>
+            <li class="passo passo--destaque">
+              <span class="passo__marcador" aria-hidden="true">2</span>
+              <div class="cartao-destaque">
+                <span class="etiqueta-h4">30 a 60 dias</span>
+                <p class="cartao-destaque__titulo">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="12" height="15" rx="2"/><path d="M9 3h10a2 2 0 0 1 2 2v13"/><path d="M7 10h4M7 14h4"/></svg>
+                  Período de 2 contas
+                </p>
+                <p class="cartao-destaque__texto">Cemig + Bulbe. Não é em dobro.</p>
+              </div>
+            </li>
+            <li class="passo passo--depois">
+              <span class="passo__marcador" aria-hidden="true">3</span>
+              <div class="passo__texto">
+                <span class="passo__quando">Depois</span>
+                <strong>Só a conta Bulbe <svg class="icone icone--raio" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></strong>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="vista__acoes">
+          <a class="botao-jornada" href="#tela2">Começar</a>
+        </div>
+      </section>
+
+      <!-- ===================== Tela 2 · Por que 2 contas? ===================== -->
+      <section class="vista vista--onboarding vista--cabecalho" id="tela2" aria-labelledby="titulo-tela2" hidden>
+        <header class="cabecalho-h4">
+          <a class="cabecalho-h4__voltar" href="#tela1" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </a>
+          <p class="cabecalho-h4__titulo">Por que 2 contas?</p>
+        </header>
+        <div class="vista__conteudo">
+          <h1 class="titulo-etapa" id="titulo-tela2" tabindex="-1" aria-describedby="etapa-atual">Cada conta cobra uma coisa.</h1>
+
+          <ul class="lista-contas">
+            <li class="conta">
+              <span class="conta__icone conta__icone--cemig" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2v4M5 9l2 2M19 9l-2 2M8 22h8M12 22V12"/><path d="M6 12h12"/></svg>
+              </span>
+              <div class="conta__info">
+                <strong>Cemig</strong>
+                <span>Rede e iluminação pública</span>
+              </div>
+              <strong class="conta__valor">R$ 48,30</strong>
+            </li>
+            <li class="conta">
+              <span class="conta__icone conta__icone--bulbe" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>
+              </span>
+              <div class="conta__info">
+                <strong>Bulbe</strong>
+                <span>Sua energia, com desconto</span>
+              </div>
+              <strong class="conta__valor">R$ 203,76</strong>
+            </li>
+          </ul>
+
+          <div class="aviso-h4 aviso-h4--verde">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+            <div>
+              <p class="aviso-h4__titulo">Não é cobrança em dobro.</p>
+              <p>Somadas, você economiza <strong>R$ 29,87/mês</strong>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="vista__acoes">
+          <a class="botao-jornada" href="#tela3">Continuar</a>
+        </div>
+      </section>
+
+      <!-- ===================== Tela 3 · Avisos ===================== -->
+      <section class="vista vista--onboarding vista--cabecalho" id="tela3" aria-labelledby="titulo-tela3" hidden>
+        <header class="cabecalho-h4">
+          <a class="cabecalho-h4__voltar" href="#tela2" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </a>
+          <p class="cabecalho-h4__titulo">Avisos</p>
+        </header>
+        <div class="vista__conteudo">
+          <h1 class="titulo-etapa" id="titulo-tela3" tabindex="-1" aria-describedby="etapa-atual">Onde avisamos você?</h1>
+
+          <div class="campo-jornada campo-h4">
+            <label for="whatsapp">WhatsApp</label>
+            <div class="campo-h4__entrada">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z"/></svg>
+              <input id="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" value="(31) 9 8765-4321" maxlength="16">
+            </div>
+          </div>
+
+          <div class="cartao-codigo">
+            <p class="cartao-codigo__titulo" id="rotulo-codigo">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              Digite o código que enviamos
+            </p>
+            <div class="codigo" role="group" aria-labelledby="rotulo-codigo">
+              <input class="codigo__digito" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" value="4" aria-label="Dígito 1">
+              <input class="codigo__digito" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="8" aria-label="Dígito 2">
+              <input class="codigo__digito" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="2" aria-label="Dígito 3">
+              <input class="codigo__digito" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="" aria-label="Dígito 4">
+            </div>
+            <button class="link-h4" type="button" data-aviso="Enviamos um novo código por SMS para (31) 9 8765-4321.">Não recebi · enviar por SMS</button>
+          </div>
+
+          <div class="aviso-h4">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+            <div>
+              <p class="aviso-h4__titulo">Avisamos 3 dias antes de cada conta.</p>
+              <p>Sempre do número oficial da Bulbe: <strong>(31) 3333-0000</strong>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="vista__acoes">
+          <a class="botao-jornada" href="#tela4">Continuar</a>
+        </div>
+      </section>
+
+      <!-- ===================== Tela 4 · Confirmar adesão ===================== -->
+      <section class="vista vista--onboarding vista--cabecalho" id="tela4" aria-labelledby="titulo-tela4" hidden>
+        <header class="cabecalho-h4">
+          <a class="cabecalho-h4__voltar" href="#tela3" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </a>
+          <p class="cabecalho-h4__titulo">Confirmar adesão</p>
+        </header>
+        <div class="vista__conteudo">
+          <h1 class="titulo-etapa" id="titulo-tela4" tabindex="-1" aria-describedby="etapa-atual">Antes de concluir.</h1>
+
+          <div class="aviso-h4 aviso-h4--forte">
+            <span class="aviso-h4__selo" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="15" rx="2"/><path d="M9 3h10a2 2 0 0 1 2 2v13"/><path d="M7 10h4M7 14h4"/></svg>
+            </span>
+            <p class="aviso-h4__titulo aviso-h4__titulo--grande">Por 30 a 60 dias, você vai receber 2 contas: Cemig e Bulbe.</p>
+            <p>Pague as duas. Não é cobrança em dobro.</p>
+          </div>
+
+          <label class="confirmacao-h4">
+            <input type="checkbox" id="entendi">
+            <span class="confirmacao-h4__caixa" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>
+            </span>
+            <span>Entendi que vou receber 2 contas.</span>
+          </label>
+        </div>
+        <div class="vista__acoes">
+          <a class="botao-jornada" id="concluir-adesao" href="#tela5" aria-disabled="true" aria-describedby="ajuda-concluir">Concluir adesão</a>
+          <p class="ajuda-acao" id="ajuda-concluir" role="alert">Marque a confirmação para continuar.</p>
+        </div>
+      </section>
+
+      <!-- ===================== Tela 5 · Adesão concluída ===================== -->
+      <section class="vista vista--onboarding" id="tela5" aria-labelledby="titulo-tela5" hidden>
+        <div class="vista__conteudo vista__conteudo--hero">
+          <span class="selo-sucesso" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+          </span>
+
+          <h1 class="titulo-hero" id="titulo-tela5" tabindex="-1" aria-describedby="etapa-atual">Pronto, Marina!</h1>
+          <p class="apoio-hero">Sua adesão foi concluída.</p>
+
+          <ol class="etapas-status" aria-label="Próximas etapas">
+            <li class="etapa-status etapa-status--feita">
+              <span class="etapa-status__marcador" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9"/></svg></span>
+              <strong>Adesão <span class="apenas-leitor">(concluída)</span></strong>
+              <span class="etapa-status__data">Hoje · 03/11</span>
+            </li>
+            <li class="etapa-status etapa-status--atual">
+              <span class="etapa-status__marcador" aria-hidden="true">2</span>
+              <strong>Conexão <span class="apenas-leitor">(em andamento)</span></strong>
+              <span class="etapa-status__data">Até 14/12</span>
+            </li>
+            <li class="etapa-status">
+              <span class="etapa-status__marcador" aria-hidden="true">3</span>
+              <strong>1ª conta Bulbe</strong>
+              <span class="etapa-status__data">Aviso antes</span>
+            </li>
+          </ol>
+
+          <div class="aviso-h4">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
+            <div>
+              <p class="aviso-h4__titulo">Próximo aviso: 14/12, no WhatsApp.</p>
+              <p>Até lá, continue pagando a Cemig.</p>
+            </div>
+          </div>
+        </div>
+        <div class="vista__acoes">
+          <a class="botao-jornada" href="#tela6">Criar minha senha</a>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           APLICATIVO (telas 6 a 10). Duas abas, cada uma responde a uma pergunta:
+           · Início  → "Onde estou e o que faço agora?" (jornada do ciclo + 1 ação)
+           · Contas  → "O que devo, o que já paguei e quanto?" (extrato)
+           O mês (janeiro ou fevereiro) é estado do protótipo: trocar de aba nunca
+           muda o mês; só o chip tracejado "Protótipo" avança ou volta 1 mês.
+           ===================================================================== -->
+
+      <!-- ===================== Tela 6 · Início · janeiro (ciclo 1 de 2) ===================== -->
+      <section class="vista vista--app vista--inicio" id="tela6" data-mes="jan" aria-labelledby="titulo-tela6" hidden>
+        <header class="cabecalho-inicio">
+          <div class="logo-h4 logo-h4--pequeno"><img src="assets/img/logo-azul.svg" alt="Bulbe"></div>
+          <span class="avatar-h4" aria-hidden="true">MS</span>
+        </header>
+        <div class="vista__conteudo vista__conteudo--inicio">
+          <button class="chip-prototipo" type="button" data-trocar-mes aria-label="Protótipo: avançar 1 mês, para fevereiro">
+            <span class="chip-prototipo__rotulo">Protótipo · janeiro</span>
+            <span class="chip-prototipo__acao">Avançar 1 mês <span aria-hidden="true">→</span></span>
+          </button>
+
+          <div class="saudacao">
+            <h1 class="saudacao__titulo" id="titulo-tela6" tabindex="-1" aria-describedby="mes-tela6">Olá, Marina</h1>
+            <p class="saudacao__mes" id="mes-tela6">Janeiro de 2027</p>
+          </div>
+
+          <article class="jornada" aria-labelledby="jornada-tela6">
+            <svg class="jornada__arte" viewBox="0 0 160 160" aria-hidden="true"><circle cx="128" cy="32" r="78"/><circle cx="128" cy="32" r="50"/><path d="m134 2-34 44h24l-4 30 36-46h-24z"/></svg>
+            <p class="jornada__sobre">Período de 2 contas</p>
+            <h2 class="jornada__titulo" id="jornada-tela6">Ciclo 1 de 2</h2>
+            <ol class="marcos" style="--progresso: 0.25" aria-label="Sua jornada até pagar só a Bulbe">
+              <li class="marco marco--atual">
+                <span class="marco__ponto" aria-hidden="true"></span>
+                <span class="marco__mes">Jan</span>
+                <span class="marco__estado">Agora</span>
+                <span class="apenas-leitor">Janeiro: ciclo 1, o atual.</span>
+              </li>
+              <li class="marco">
+                <span class="marco__ponto" aria-hidden="true"></span>
+                <span class="marco__mes">Fev</span>
+                <span class="marco__estado">Último</span>
+                <span class="apenas-leitor">Fevereiro: ciclo 2, o último com 2 contas.</span>
+              </li>
+              <li class="marco marco--so-bulbe">
+                <span class="marco__ponto" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                <span class="marco__mes">Mar</span>
+                <span class="marco__estado">Só Bulbe</span>
+                <span class="apenas-leitor">Março: você passa a pagar só a Bulbe.</span>
+              </li>
+            </ol>
+            <p class="jornada__frase">Falta 1 ciclo para pagar só a Bulbe.</p>
+            <p class="jornada__data">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              Previsão: só a conta Bulbe a partir de março
+            </p>
+          </article>
+
+          <section class="proxima" aria-labelledby="proxima-tela6">
+            <h2 class="rotulo-secao" id="proxima-tela6">Sua próxima ação</h2>
+            <button class="botao-jornada botao-acao" type="button" data-aviso="Código PIX da conta Bulbe de janeiro copiado. Cole no app do seu banco.">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12z"/><path d="m8 12 4-4 4 4-4 4z"/></svg>
+              <span class="botao-acao__texto">
+                <span>Pagar conta Bulbe de janeiro</span>
+                <span class="botao-acao__detalhe">R$&nbsp;203,76 · vence 15/01</span>
+              </span>
+            </button>
+          </section>
+
+          <a class="linha-link" href="#tela7">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg>
+            <span class="linha-link__texto">Por que 2 contas este mês?</span>
+            <svg class="linha-link__seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          </a>
+
+          <div class="economia">
+            <span class="economia__icone" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>
+            <p class="economia__texto"><strong>Você economiza R$&nbsp;29,87/mês</strong><span>Em relação à sua conta de luz antes da Bulbe.</span></p>
+          </div>
+        </div>
+        <footer class="menu-h4">
+          <nav aria-label="Navegação principal">
+            <a class="menu-h4__item" href="#tela6" aria-current="page">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+              <span>Início</span>
+            </a>
+            <a class="menu-h4__item" href="#tela8">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+              <span>Contas</span>
+            </a>
+            <button class="menu-h4__item" type="button" data-aviso="A tela de conexão faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></svg>
+              <span>Conexão</span>
+            </button>
+            <button class="menu-h4__item" type="button" data-aviso="A central de ajuda faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg>
+              <span>Ajuda</span>
+            </button>
+          </nav>
+        </footer>
+      </section>
+
+      <!-- ===================== Tela 7 · Por que 2 contas? (folha sobre o Início do mês atual) ===================== -->
+      <div class="folha-fundo" id="tela7" hidden>
+        <span class="folha-veu" aria-hidden="true"></span>
+        <a class="folha-fundo__fechar" href="#tela6" data-jan="tela6" data-fev="tela9" tabindex="-1" aria-hidden="true"></a>
+        <section class="folha" role="dialog" aria-modal="true" aria-labelledby="titulo-tela7">
+          <span class="folha__alca" aria-hidden="true"></span>
+          <header class="folha__topo">
+            <h1 class="titulo-etapa" id="titulo-tela7" tabindex="-1">Suas 2 contas</h1>
+            <a class="folha__x" href="#tela6" data-jan="tela6" data-fev="tela9" aria-label="Fechar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </a>
+          </header>
+          <div class="folha__conteudo">
+            <p class="folha__intro">Neste período chegam 2 contas. <strong>Cada uma cobra uma coisa.</strong></p>
+            <ul class="lista-contas">
+              <li class="conta">
+                <span class="conta__icone conta__icone--cemig" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v4M5 9l2 2M19 9l-2 2M8 22h8M12 22V12"/><path d="M6 12h12"/></svg>
+                </span>
+                <div class="conta__info">
+                  <strong>Cemig</strong>
+                  <span>Taxa mínima + iluminação pública</span>
+                </div>
+                <strong class="conta__valor"><span data-mes-texto="jan"><abbr title="valor aproximado">~</abbr>R$&nbsp;48,30</span><span data-mes-texto="fev" hidden>R$&nbsp;47,90</span></strong>
+              </li>
+              <li class="conta">
+                <span class="conta__icone conta__icone--bulbe" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>
+                </span>
+                <div class="conta__info">
+                  <strong>Bulbe</strong>
+                  <span>Energia com desconto</span>
+                </div>
+                <strong class="conta__valor"><span data-mes-texto="jan">R$&nbsp;203,76</span><span data-mes-texto="fev" hidden>R$&nbsp;198,40</span></strong>
+              </li>
+            </ul>
+
+            <div class="aviso-h4 aviso-h4--verde">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+              <div>
+                <p class="aviso-h4__titulo">Nada se repete.</p>
+                <p>Você economiza <strong>R$&nbsp;29,87</strong> por mês.</p>
+              </div>
+            </div>
+
+            <p class="nota-folha">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              As 2 contas vão até fevereiro. A partir de março, só a conta Bulbe.
+            </p>
+          </div>
+          <div class="vista__acoes">
+            <a class="botao-jornada botao-jornada--secundario" href="#tela8" data-jan="tela8" data-fev="tela10">Ver minhas contas</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== Tela 8 · Contas · janeiro ===================== -->
+      <section class="vista vista--app vista--agrupada" id="tela8" data-mes="jan" aria-labelledby="titulo-tela8" hidden>
+        <div class="vista__conteudo vista__conteudo--contas">
+          <button class="chip-prototipo" type="button" data-trocar-mes aria-label="Protótipo: avançar 1 mês, para fevereiro">
+            <span class="chip-prototipo__rotulo">Protótipo · janeiro</span>
+            <span class="chip-prototipo__acao">Avançar 1 mês <span aria-hidden="true">→</span></span>
+          </button>
+
+          <div class="contas-topo">
+            <h1 class="titulo-grande" id="titulo-tela8" tabindex="-1" aria-describedby="contexto-tela8">Contas</h1>
+            <p class="contas-contexto" id="contexto-tela8">Janeiro de 2027 · 2 contas até fevereiro</p>
+          </div>
+
+          <div class="segmentado" role="tablist" aria-label="Filtrar contas">
+            <span class="segmentado__fundo" aria-hidden="true"></span>
+            <button class="segmentado__opcao" type="button" role="tab" id="seg-tela8-aberto" aria-selected="true" aria-controls="painel-tela8-aberto">Em aberto <span class="segmentado__qtd"><span class="apenas-leitor">, </span>2</span></button>
+            <button class="segmentado__opcao" type="button" role="tab" id="seg-tela8-pagas" aria-selected="false" aria-controls="painel-tela8-pagas" tabindex="-1">Pagas <span class="segmentado__qtd"><span class="apenas-leitor">, </span>0</span></button>
+          </div>
+
+          <div class="painel" role="tabpanel" id="painel-tela8-aberto" aria-labelledby="seg-tela8-aberto">
+            <section class="grupo" aria-labelledby="grupo-tela8-jan">
+              <h2 class="grupo__titulo" id="grupo-tela8-jan">Janeiro</h2>
+              <div class="celulas">
+                <div class="total">
+                  <p class="total__rotulo">Total de janeiro</p>
+                  <p class="total__valor">R$&nbsp;252,06</p>
+                  <span class="total__barra" style="--parte: 80.8%" aria-hidden="true"><span></span></span>
+                  <p class="total__partes">
+                    <span><i class="ponto ponto--bulbe" aria-hidden="true"></i>Bulbe <b>R$&nbsp;203,76</b></span>
+                    <span class="total__mais" aria-hidden="true">+</span>
+                    <span><i class="ponto ponto--cemig" aria-hidden="true"></i>Cemig <b>R$&nbsp;48,30</b></span>
+                  </p>
+                </div>
+                <ul class="lista-celulas">
+                  <li class="linha-conta">
+                    <span class="marca marca--bulbe" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Bulbe</strong><span class="linha-conta__valor">R$&nbsp;203,76</span></p>
+                      <p class="linha-conta__cobre">Energia com desconto · BL-4821</p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--aberto"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Em aberto</span>
+                        <span>Vence 15/01</span>
+                      </p>
+                      <div class="linha-conta__acoes">
+                        <button class="botao-celula botao-celula--primario" type="button" data-aviso="Código PIX da conta Bulbe de janeiro copiado. Cole no app do seu banco.">
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12z"/><path d="m8 12 4-4 4 4-4 4z"/></svg>Pagar
+                        </button>
+                        <button class="botao-celula" type="button" data-aviso="Código de barras da conta BL-4821 copiado.">
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg>Copiar código
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="linha-conta">
+                    <span class="marca marca--cemig" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M5 9l2 2M19 9l-2 2M8 22h8M12 22V12"/><path d="M6 12h12"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Cemig</strong><span class="linha-conta__valor">R$&nbsp;48,30</span></p>
+                      <p class="linha-conta__cobre">Taxa mínima + iluminação pública</p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--aberto"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Em aberto</span>
+                        <span>Vence 20/01</span>
+                      </p>
+                      <p class="linha-conta__fora">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+                        Pague no app da Cemig ou no seu banco
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p class="grupo__rodape">Não é cobrança em dobro: cada conta cobre uma coisa.</p>
+            </section>
+
+            <section class="grupo" aria-labelledby="grupo-tela8-fev">
+              <h2 class="grupo__titulo" id="grupo-tela8-fev">Fevereiro · previstas</h2>
+              <div class="celulas">
+                <ul class="lista-celulas">
+                  <li class="linha-conta linha-conta--prevista">
+                    <span class="marca marca--prevista" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Bulbe</strong><span class="linha-conta__valor linha-conta__valor--pendente">valor a confirmar</span></p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--prevista"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke-dasharray="3 3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Prevista</span>
+                        <span>Chega até ~05/02</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="linha-conta linha-conta--prevista">
+                    <span class="marca marca--prevista" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M5 9l2 2M19 9l-2 2M8 22h8M12 22V12"/><path d="M6 12h12"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Cemig</strong><span class="linha-conta__valor linha-conta__valor--pendente">valor a confirmar</span></p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--prevista"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke-dasharray="3 3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Prevista</span>
+                        <span>Chega até ~05/02</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          <div class="painel" role="tabpanel" id="painel-tela8-pagas" aria-labelledby="seg-tela8-pagas" hidden>
+            <div class="vazio">
+              <span class="vazio__icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="m9 11 2 2 4-4"/></svg></span>
+              <p class="vazio__titulo">Nenhuma conta paga ainda</p>
+              <p class="vazio__texto">Quando você pagar a conta Bulbe de janeiro, o comprovante aparece aqui. A Cemig você paga no app dela ou no banco.</p>
+              <button class="botao-celula botao-celula--primario" type="button" data-ir-segmento="seg-tela8-aberto">Ver contas em aberto</button>
+            </div>
+          </div>
+        </div>
+        <footer class="menu-h4">
+          <nav aria-label="Navegação principal">
+            <a class="menu-h4__item" href="#tela6">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+              <span>Início</span>
+            </a>
+            <a class="menu-h4__item" href="#tela8" aria-current="page">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+              <span>Contas</span>
+            </a>
+            <button class="menu-h4__item" type="button" data-aviso="A tela de conexão faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></svg>
+              <span>Conexão</span>
+            </button>
+            <button class="menu-h4__item" type="button" data-aviso="A central de ajuda faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg>
+              <span>Ajuda</span>
+            </button>
+          </nav>
+        </footer>
+      </section>
+
+      <!-- ===================== Tela 9 · Início · fevereiro (ciclo 2 de 2, último) ===================== -->
+      <section class="vista vista--app vista--inicio" id="tela9" data-mes="fev" aria-labelledby="titulo-tela9" hidden>
+        <header class="cabecalho-inicio">
+          <div class="logo-h4 logo-h4--pequeno"><img src="assets/img/logo-azul.svg" alt="Bulbe"></div>
+          <span class="avatar-h4" aria-hidden="true">MS</span>
+        </header>
+        <div class="vista__conteudo vista__conteudo--inicio">
+          <button class="chip-prototipo" type="button" data-trocar-mes aria-label="Protótipo: voltar 1 mês, para janeiro">
+            <span class="chip-prototipo__acao"><span aria-hidden="true">←</span> Voltar 1 mês</span>
+            <span class="chip-prototipo__rotulo">Protótipo · fevereiro</span>
+          </button>
+
+          <div class="saudacao">
+            <h1 class="saudacao__titulo" id="titulo-tela9" tabindex="-1" aria-describedby="mes-tela9">Olá, Marina</h1>
+            <p class="saudacao__mes" id="mes-tela9">Fevereiro de 2027</p>
+          </div>
+
+          <article class="jornada jornada--ultimo" aria-labelledby="jornada-tela9">
+            <svg class="jornada__arte" viewBox="0 0 160 160" aria-hidden="true"><circle cx="128" cy="32" r="78"/><circle cx="128" cy="32" r="50"/><path d="m134 2-34 44h24l-4 30 36-46h-24z"/></svg>
+            <p class="jornada__sobre">Período de 2 contas</p>
+            <div class="jornada__linha-titulo">
+              <h2 class="jornada__titulo" id="jornada-tela9">Ciclo 2 de 2</h2>
+              <span class="selo-ultimo">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+                Último ciclo
+              </span>
+            </div>
+            <ol class="marcos" style="--progresso: 0.75" aria-label="Sua jornada até pagar só a Bulbe">
+              <li class="marco marco--feito">
+                <span class="marco__ponto" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9"/></svg></span>
+                <span class="marco__mes">Jan</span>
+                <span class="marco__estado">Concluído</span>
+                <span class="apenas-leitor">Janeiro: ciclo 1, concluído.</span>
+              </li>
+              <li class="marco marco--atual">
+                <span class="marco__ponto" aria-hidden="true"></span>
+                <span class="marco__mes">Fev</span>
+                <span class="marco__estado">Agora</span>
+                <span class="apenas-leitor">Fevereiro: ciclo 2, o atual e último com 2 contas.</span>
+              </li>
+              <li class="marco marco--so-bulbe">
+                <span class="marco__ponto" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                <span class="marco__mes">Mar</span>
+                <span class="marco__estado">Só Bulbe</span>
+                <span class="apenas-leitor">Março: você passa a pagar só a Bulbe.</span>
+              </li>
+            </ol>
+            <p class="jornada__frase">Em março você paga só a Bulbe.</p>
+            <p class="jornada__data">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              Previsão: 1ª conta só Bulbe vence 15/03
+            </p>
+          </article>
+
+          <section class="proxima" aria-labelledby="proxima-tela9">
+            <h2 class="rotulo-secao" id="proxima-tela9">Sua próxima ação</h2>
+            <button class="botao-jornada botao-acao" type="button" data-aviso="Código PIX da conta Bulbe de fevereiro copiado. Cole no app do seu banco.">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12z"/><path d="m8 12 4-4 4 4-4 4z"/></svg>
+              <span class="botao-acao__texto">
+                <span>Pagar conta Bulbe de fevereiro</span>
+                <span class="botao-acao__detalhe">R$&nbsp;198,40 · vence 15/02</span>
+              </span>
+            </button>
+          </section>
+
+          <a class="linha-link" href="#tela7">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg>
+            <span class="linha-link__texto">Por que 2 contas este mês?</span>
+            <svg class="linha-link__seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          </a>
+
+          <div class="economia">
+            <span class="economia__icone" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>
+            <p class="economia__texto"><strong>Você já economizou R$&nbsp;29,87</strong><span>Em janeiro. E segue economizando R$&nbsp;29,87 por mês.</span></p>
+          </div>
+        </div>
+        <footer class="menu-h4">
+          <nav aria-label="Navegação principal">
+            <a class="menu-h4__item" href="#tela9" aria-current="page">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+              <span>Início</span>
+            </a>
+            <a class="menu-h4__item" href="#tela10">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+              <span>Contas</span>
+            </a>
+            <button class="menu-h4__item" type="button" data-aviso="A tela de conexão faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></svg>
+              <span>Conexão</span>
+            </button>
+            <button class="menu-h4__item" type="button" data-aviso="A central de ajuda faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg>
+              <span>Ajuda</span>
+            </button>
+          </nav>
+        </footer>
+      </section>
+
+      <!-- ===================== Tela 10 · Contas · fevereiro ===================== -->
+      <section class="vista vista--app vista--agrupada" id="tela10" data-mes="fev" aria-labelledby="titulo-tela10" hidden>
+        <div class="vista__conteudo vista__conteudo--contas">
+          <button class="chip-prototipo" type="button" data-trocar-mes aria-label="Protótipo: voltar 1 mês, para janeiro">
+            <span class="chip-prototipo__acao"><span aria-hidden="true">←</span> Voltar 1 mês</span>
+            <span class="chip-prototipo__rotulo">Protótipo · fevereiro</span>
+          </button>
+
+          <div class="contas-topo">
+            <h1 class="titulo-grande" id="titulo-tela10" tabindex="-1" aria-describedby="contexto-tela10">Contas</h1>
+            <p class="contas-contexto" id="contexto-tela10">Fevereiro de 2027 · último mês com 2 contas</p>
+          </div>
+
+          <div class="segmentado" role="tablist" aria-label="Filtrar contas">
+            <span class="segmentado__fundo" aria-hidden="true"></span>
+            <button class="segmentado__opcao" type="button" role="tab" id="seg-tela10-aberto" aria-selected="true" aria-controls="painel-tela10-aberto">Em aberto <span class="segmentado__qtd"><span class="apenas-leitor">, </span>2</span></button>
+            <button class="segmentado__opcao" type="button" role="tab" id="seg-tela10-pagas" aria-selected="false" aria-controls="painel-tela10-pagas" tabindex="-1">Pagas <span class="segmentado__qtd"><span class="apenas-leitor">, </span>2</span></button>
+          </div>
+
+          <div class="painel" role="tabpanel" id="painel-tela10-aberto" aria-labelledby="seg-tela10-aberto">
+            <section class="grupo" aria-labelledby="grupo-tela10-fev">
+              <h2 class="grupo__titulo" id="grupo-tela10-fev">Fevereiro</h2>
+              <div class="celulas">
+                <div class="total">
+                  <p class="total__rotulo">Total de fevereiro</p>
+                  <p class="total__valor">R$&nbsp;246,30</p>
+                  <span class="total__barra" style="--parte: 80.6%" aria-hidden="true"><span></span></span>
+                  <p class="total__partes">
+                    <span><i class="ponto ponto--bulbe" aria-hidden="true"></i>Bulbe <b>R$&nbsp;198,40</b></span>
+                    <span class="total__mais" aria-hidden="true">+</span>
+                    <span><i class="ponto ponto--cemig" aria-hidden="true"></i>Cemig <b>R$&nbsp;47,90</b></span>
+                  </p>
+                </div>
+                <ul class="lista-celulas">
+                  <li class="linha-conta">
+                    <span class="marca marca--bulbe" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Bulbe</strong><span class="linha-conta__valor">R$&nbsp;198,40</span></p>
+                      <p class="linha-conta__cobre">Energia com desconto · BL-5093</p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--aberto"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Em aberto</span>
+                        <span>Vence 15/02</span>
+                      </p>
+                      <div class="linha-conta__acoes">
+                        <button class="botao-celula botao-celula--primario" type="button" data-aviso="Código PIX da conta Bulbe de fevereiro copiado. Cole no app do seu banco.">
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12z"/><path d="m8 12 4-4 4 4-4 4z"/></svg>Pagar
+                        </button>
+                        <button class="botao-celula" type="button" data-aviso="Código de barras da conta BL-5093 copiado.">
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg>Copiar código
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="linha-conta">
+                    <span class="marca marca--cemig" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M5 9l2 2M19 9l-2 2M8 22h8M12 22V12"/><path d="M6 12h12"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Cemig</strong><span class="linha-conta__valor">R$&nbsp;47,90</span></p>
+                      <p class="linha-conta__cobre">Taxa mínima + iluminação pública</p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--aberto"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Em aberto</span>
+                        <span>Vence 20/02</span>
+                      </p>
+                      <p class="linha-conta__fora">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+                        Pague no app da Cemig ou no seu banco
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p class="grupo__rodape">Não é cobrança em dobro: cada conta cobre uma coisa.</p>
+            </section>
+
+            <section class="grupo" aria-labelledby="grupo-tela10-mar">
+              <h2 class="grupo__titulo" id="grupo-tela10-mar">Março · prevista</h2>
+              <div class="celulas">
+                <ul class="lista-celulas">
+                  <li class="linha-conta linha-conta--prevista">
+                    <span class="marca marca--prevista" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Bulbe</strong><span class="linha-conta__valor linha-conta__valor--pendente">valor a confirmar</span></p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--prevista"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke-dasharray="3 3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Prevista</span>
+                        <span>Chega até ~05/03</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p class="grupo__rodape">Em março chega só a conta Bulbe.</p>
+            </section>
+          </div>
+
+          <div class="painel" role="tabpanel" id="painel-tela10-pagas" aria-labelledby="seg-tela10-pagas" hidden>
+            <section class="grupo" aria-labelledby="grupo-tela10-pagas-jan">
+              <h2 class="grupo__titulo" id="grupo-tela10-pagas-jan">Janeiro · total pago R$&nbsp;252,06</h2>
+              <div class="celulas">
+                <ul class="lista-celulas">
+                  <li class="linha-conta">
+                    <span class="marca marca--bulbe" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Bulbe</strong><span class="linha-conta__valor">R$&nbsp;203,76</span></p>
+                      <p class="linha-conta__cobre">Energia com desconto · BL-4821</p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--paga"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4 8-9"/></svg>Paga</span>
+                        <span>Em 12/01 · PIX</span>
+                      </p>
+                      <div class="linha-conta__acoes">
+                        <button class="botao-celula" type="button" data-aviso="Comprovante da conta BL-4821 salvo nos seus arquivos.">
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Comprovante
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="linha-conta">
+                    <span class="marca marca--cemig" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M5 9l2 2M19 9l-2 2M8 22h8M12 22V12"/><path d="M6 12h12"/></svg></span>
+                    <div class="linha-conta__corpo">
+                      <p class="linha-conta__topo"><strong>Cemig</strong><span class="linha-conta__valor">R$&nbsp;48,30</span></p>
+                      <p class="linha-conta__cobre">Taxa mínima + iluminação pública</p>
+                      <p class="linha-conta__meta">
+                        <span class="status status--paga"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4 8-9"/></svg>Paga</span>
+                        <span>Em 18/01 · fora do app</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+        <footer class="menu-h4">
+          <nav aria-label="Navegação principal">
+            <a class="menu-h4__item" href="#tela9">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+              <span>Início</span>
+            </a>
+            <a class="menu-h4__item" href="#tela10" aria-current="page">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+              <span>Contas</span>
+            </a>
+            <button class="menu-h4__item" type="button" data-aviso="A tela de conexão faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></svg>
+              <span>Conexão</span>
+            </button>
+            <button class="menu-h4__item" type="button" data-aviso="A central de ajuda faz parte de outra história.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg>
+              <span>Ajuda</span>
+            </button>
+          </nav>
+        </footer>
+      </section>
+
+      <!-- Retorno da troca de mês do protótipo ("1 mês depois…"). Decorativo: o
+           mês novo é lido junto com o título da tela (aria-describedby). -->
+      <div class="salto-mes" id="salto-mes" aria-hidden="true" hidden>
+        <div class="salto-mes__cartao">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <p class="salto-mes__titulo">1 mês depois…</p>
+          <p class="salto-mes__mes">Fevereiro</p>
+        </div>
+      </div>
+      <!-- Bolinhas do onboarding (telas 1 a 5). Ficam fixas enquanto as telas deslizam. -->
+      <nav class="indicadores" id="indicadores" aria-label="Progresso do onboarding" hidden>
+        <button class="indicador" type="button" data-alvo="tela1" aria-label="Tela 1 de 5"><span></span></button>
+        <button class="indicador" type="button" data-alvo="tela2" aria-label="Tela 2 de 5"><span></span></button>
+        <button class="indicador" type="button" data-alvo="tela3" aria-label="Tela 3 de 5"><span></span></button>
+        <button class="indicador" type="button" data-alvo="tela4" aria-label="Tela 4 de 5"><span></span></button>
+        <button class="indicador" type="button" data-alvo="tela5" aria-label="Tela 5 de 5"><span></span></button>
+        <span class="indicadores__pilula" aria-hidden="true"></span>
+      </nav>
+      <p class="apenas-leitor" id="etapa-atual"></p>
+
+      <p class="aviso-flutuante" id="aviso-flutuante" role="status" aria-live="polite"></p>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "cliente": {
+    "id": 4,
+    "nome": "Cláudia Ramos",
+    "iniciais": "CR",
+    "linkIndicacao": "https://exemplo.com/indique/CLAUDIA500"
+  },
+  "dataReferencia": "2026-10-20",
+  "valorPontoEmReais": 0.01,
+  "validadeMeses": 12,
+  "pontosExpirando": { "pontos": 150, "data": "2026-11-30" },
+  "niveis": [
+    { "nome": "Bronze", "minimo": 0 },
+    { "nome": "Prata", "minimo": 1000 },
+    { "nome": "Ouro", "minimo": 3000 },
+    { "nome": "Diamante", "minimo": 6000 }
+  ],
+  "formasDeGanhar": [
+    { "id": "indicacao", "titulo": "Indique um amigo", "descricao": "Quando ele for conectado à Bulbe", "pontos": "+500 pts", "icone": "amigo", "concluida": false },
+    { "id": "pagamento", "titulo": "Pague a conta em dia", "descricao": "Todo mês, automaticamente", "pontos": "+100 pts", "icone": "check", "concluida": false },
+    { "id": "economia", "titulo": "Economize energia", "descricao": "10 pts a cada R$ 1 economizado", "pontos": "+10 pts/R$", "icone": "raio", "concluida": false },
+    { "id": "fatura-digital", "titulo": "Fatura digital ativa", "descricao": "+150 pts recebidos", "pontos": "+150 pts", "icone": "email", "concluida": true },
+    { "id": "perfil", "titulo": "Complete seu perfil", "descricao": "+200 pts recebidos", "pontos": "+200 pts", "icone": "perfil", "concluida": true }
+  ],
+  "indicacao": {
+    "pontosPorIndicacao": 500,
+    "descontoAmigo": 50,
+    "pessoasQueIndicaram": 18096
+  },
+  "recompensas": [
+    { "id": 1, "titulo": "R$ 10 de desconto na conta", "descricao": "Abatido na próxima fatura", "custo": 1000, "icone": "raio" },
+    { "id": 2, "titulo": "R$ 25 de desconto na conta", "descricao": "Abatido na próxima fatura", "custo": 2500, "icone": "dinheiro" },
+    { "id": 3, "titulo": "Cupom em loja parceira", "descricao": "Cashback de 5% no cartão", "custo": 800, "icone": "presente" },
+    { "id": 4, "titulo": "Plante uma árvore", "descricao": "Doação em seu nome", "custo": 300, "icone": "folha" }
+  ],
+  "extrato": [
+    { "data": "2026-10-10", "descricao": "Conta paga em dia", "pontos": 100 },
+    { "data": "2026-10-05", "descricao": "Economia de setembro", "pontos": 300 },
+    { "data": "2026-09-28", "descricao": "Resgate: R$ 10 de desconto na conta", "pontos": -1000 },
+    { "data": "2026-09-22", "descricao": "Indicação: Paula M.", "pontos": 500 },
+    { "data": "2026-09-15", "descricao": "Indicação: Lucas S.", "pontos": 500 },
+    { "data": "2026-09-10", "descricao": "Conta paga em dia", "pontos": 100 },
+    { "data": "2026-09-08", "descricao": "Indicação: Marcos T.", "pontos": 500 },
+    { "data": "2026-09-05", "descricao": "Fatura digital ativada", "pontos": 150 },
+    { "data": "2026-09-02", "descricao": "Perfil completo", "pontos": 200 },
+    { "data": "2026-09-02", "descricao": "Bônus de boas-vindas", "pontos": 1000 }
+  ]
+}
