@@ -426,7 +426,6 @@ function gallery(key,badge){
  </div>`;
 }
 function wfNav(hidden){return `<div class="wf-nav"${hidden?' hidden':''} role="group" aria-label="Wireframes"><button type="button" data-wf-step="-1" aria-label="Wireframe anterior">${ICON.prev}</button><span class="wf-label" aria-live="polite"></span><button type="button" data-wf-step="1" aria-label="Próximo wireframe">${ICON.next}</button></div>`;}
-function statusChip(s){return s.kind==='pending'?'<span class="chip is-pending"><span class="dot"></span>Próxima sprint</span>':'<span class="chip"><span class="dot"></span>Ao vivo</span>';}
 
 function render(s,i){
  const el=document.createElement('section');el.className='slide slide-'+s.kind;el.id='slide-'+s.id;el.dataset.index=i;el.setAttribute('aria-label',`${i+1} de ${slides.length}: ${s.tab}`);
@@ -435,9 +434,9 @@ function render(s,i){
    <img class="cover-logo" src="${logo}" alt="Bulbe">
    <h1 class="headline"><span>Sprint II.</span></h1>
    <p class="cover-meta">Projeto em Ciência de Dados I<br>Ibmec BH · Turma A · Squad 01</p>
-   <p class="cover-team">Luiza, Joao Gabriel, Andre, Ana Carolina e Sergio</p>
+   <p class="cover-team">Luiza, João Gabriel, André, Ana Carolina e Sérgio</p>
   </div>
-  <ol class="chapters">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}"><span class="n">${f.n}</span><span class="t">${esc(f.tab)}</span>${f.kind==='pending'?'<span class="chip is-pending"><span class="dot"></span>Próxima sprint</span>':''}</button></li>`).join('')}</ol>`;
+  <ol class="chapters">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}"><span class="n">${f.n}</span><span class="t">${esc(f.tab)}</span></button></li>`).join('')}</ol>`;
  }else if(s.kind==='live'){
   const toggle=s.wireframes?`<div class="mini-seg" role="group" aria-label="O que mostrar no aparelho"><button type="button" data-view="live" aria-pressed="true">Código</button><button type="button" data-view="wf" aria-pressed="false">Wireframes</button></div>`:'';
   el.innerHTML=`<div class="copy">${kicker(s)}<h2 class="headline">${esc(s.title)}</h2><p class="lead">${esc(s.lead)}</p>
@@ -447,8 +446,8 @@ function render(s,i){
  }else if(s.kind==='pending'){
   el.innerHTML=`<div class="copy">${kicker(s)}<h2 class="headline">${esc(s.title)}</h2>
    <p class="lead">Uma fatura de treino, de R$ 0,00, ensina a ler a conta antes da cobrança real.</p>
-   <div class="meta"><span class="chip is-pending"><span class="dot"></span>Próxima sprint</span>${wfNav(false)}</div></div>
-   ${device(gallery('fatura_zero','Wireframe · próxima sprint'))}`;
+   <div class="meta">${wfNav(false)}</div></div>
+   ${device(gallery('fatura_zero','Wireframe'))}`;
  }else if(s.kind==='problem'){
   el.innerHTML=`<div class="copy"><p class="kicker">O problema</p>
    <p class="bignum" aria-label="32,4 por cento">32,4%</p>
@@ -458,8 +457,8 @@ function render(s,i){
   el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
    <h2 class="headline concl-title">Quem tem dúvida adia o pagamento: por isso, cada fluxo responde a uma dúvida antes que ela vire inadimplência.</h2>
    <p class="journey-ends"><span>Adesão</span><span>1ª fatura paga</span></p>
-   <ol class="journey">${flows.map(f=>`<li class="${f.kind==='pending'?'is-pending':''}"><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="solve">${esc(SOLVES[f.id])}</span>${f.kind==='pending'?'<span class="chip is-pending"><span class="dot"></span>Próxima sprint</span>':''}</button></li>`).join('')}</ol>
-   <div class="concl-foot"><p class="next-line"><b>Próximos passos:</b> Fatura Zero, validação com a Bulbe e medição da 1ª fatura.</p>
+   <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="solve">${esc(SOLVES[f.id])}</span></button></li>`).join('')}</ol>
+   <div class="concl-foot"><p class="next-line"><b>Próximos passos:</b> validação com a Bulbe e medição da 1ª fatura.</p>
    <p class="goal">Meta: reduzir os <b>32,4%</b></p></div></div>`;
  }
  return el;

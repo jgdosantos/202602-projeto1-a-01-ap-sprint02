@@ -21,7 +21,7 @@ Cadastro, Onboarding, Pontos e Plano Família mostram as telas originais do proj
 
 O Onboarding usa a versão final da HU04 (10 telas: onboarding em 5 etapas, abas Início e Contas, chip "Protótipo" que simula janeiro e fevereiro e a folha "Suas 2 contas"). O botão **Wireframes** mostra os oito wireframes da história de Marina; as setas ao lado do texto trocam o wireframe exibido.
 
-A Fatura Zero ainda não tem código: a seção aparece como "Em desenvolvimento · próxima sprint", com a história HU03 e os critérios de aceite de `originais/docs/historias3.md` e os cinco wireframes `historias3.1.png` a `historias3.5.png`.
+A Fatura Zero faz parte desta sprint, mas as telas ainda não estão no projeto: por enquanto a seção mostra os cinco wireframes `historias3.1.png` a `historias3.5.png`. Quando o código chegar em `originais/pages/fatura_zero/`, ele entra na apresentação como as outras telas.
 
 Os resgates, convites e pagamentos são demonstrativos. Nenhum dado é enviado à Bulbe.
 
