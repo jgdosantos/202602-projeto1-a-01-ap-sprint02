@@ -1,10 +1,10 @@
-// Servidor estático mínimo, sem dependências: serve esta pasta (index.html na raiz).
+// Servidor estático mínimo, sem dependências: serve a pasta da apresentação (index.html na raiz).
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = fileURLToPath(new URL(".", import.meta.url));
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const PORT = Number(process.env.PORT) || 4322;
 const TYPES = {
   ".html": "text/html; charset=utf-8",

@@ -5,6 +5,6 @@
   "description": "Apresentação da Sprint II do projeto Bulbe",
   "scripts": {
     "build": "python3 src/build_original_presentation.py",
-    "dev": "node server.mjs"
+    "dev": "node scripts/servidor-local.mjs"
   }
 }
