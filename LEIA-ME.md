@@ -13,7 +13,7 @@ A apresentação tem oito seções:
 5. Fatura Zero: Mariana Dulce
 6. Pontos: Cláudia Ramos
 7. Plano Família: Carlos Vicente
-8. Conclusão: a frase que resume o racional, a jornada dos cinco fluxos (da adesão à 1ª fatura paga), os próximos passos e a meta de reduzir os 32,4%
+8. Conclusão: a frase que resume o racional, a jornada dos cinco fluxos (da adesão à 1ª fatura paga)
 
 Os dados da capa (Ibmec BH, Turma A, Squad 01, 2º semestre de 2026, cliente Bulbe Energia e equipe) vêm de `originais/README.md`. O 32,4% e o período vêm de `originais/docs/jornada.md` e do mesmo README.
 
