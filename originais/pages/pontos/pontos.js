@@ -24,6 +24,8 @@ const coresIcone = {
 let dados = null;
 let filtroAtual = 'todos';
 let recompensaSelecionada = null;
+let cupomAtual = null;
+const cupons = []; // cupons gerados nos resgates (ficam só enquanto a página está aberta)
 
 const $ = (id) => document.getElementById(id);
 const formatarPontos = (n) => n.toLocaleString('pt-BR');
@@ -188,8 +190,23 @@ function desenharRecompensas() {
     $('aviso-validade').innerHTML = `Os pontos valem por <strong>${dados.validadeMeses} meses</strong> a partir do recebimento. <strong>${formatarPontos(expira.pontos)} pts</strong> expiram em ${formatarData(expira.data)}.`;
 }
 
+function desenharCupons() {
+    $('meus-cupons').hidden = cupons.length === 0;
+    $('lista-cupons').innerHTML = cupons.map((cupom) => `
+        <li>
+            <button class="cupom-item" type="button" data-copiar-cupom="${cupom.codigo}" aria-label="Copiar o código ${cupom.codigo}">
+                <span class="cupom-item-texto">
+                    <span class="cupom-item-beneficio">${cupom.beneficio}</span>
+                    <span class="cupom-item-validade">Válido até ${formatarData(cupom.validade)}</span>
+                </span>
+                <span class="cupom-item-codigo">${cupom.codigo}</span>
+            </button>
+        </li>`).join('');
+}
+
 function desenharTudo() {
     desenharSaldo();
+    desenharCupons();
     desenharUltimasMovimentacoes();
     desenharExtratoCompleto();
     desenharFormasDeGanhar();
@@ -199,12 +216,29 @@ function desenharTudo() {
 // ---------- Navegação entre as vistas (pelo # da URL) ----------
 function mostrarVista() {
     const nome = location.hash.replace('#', '');
-    const vista = vistas.includes(nome) ? nome : 'inicio';
+    // "#indicacoes" abre a vista Ganhar pontos já no card de indicação.
+    const indicacoes = nome === 'indicacoes';
+    const vista = indicacoes ? 'ganhar' : vistas.includes(nome) ? nome : 'inicio';
 
     vistas.forEach((v) => {
         $(`vista-${v}`).hidden = v !== vista;
     });
-    $('conteudo').scrollTop = 0;
+
+    // Marca no rodapé o item da tela aberta (fica azul).
+    const itemAtual = indicacoes ? 'indicacoes' : 'pontos';
+    document.querySelectorAll('.item-menu[data-tela]').forEach((item) => {
+        if (item.dataset.tela === itemAtual) {
+            item.setAttribute('aria-current', 'page');
+        } else {
+            item.removeAttribute('aria-current');
+        }
+    });
+
+    if (indicacoes) {
+        $('indicacao').scrollIntoView({ block: 'start' });
+    } else {
+        $('conteudo').scrollTop = 0;
+    }
 }
 
 // ---------- Resgate ----------
@@ -229,10 +263,50 @@ function confirmarResgate() {
         descricao: `Resgate: ${recompensaSelecionada.titulo}`,
         pontos: -recompensaSelecionada.custo
     });
+    const cupom = criarCupom(recompensaSelecionada);
+    cupons.unshift(cupom);
+
     modal.close();
     desenharTudo();
-    mostrarAviso('Resgate realizado com sucesso!');
+    mostrarCupom(cupom);
     recompensaSelecionada = null;
+}
+
+// ---------- Cupom ----------
+function gerarCodigo(prefixo) {
+    const letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let final = '';
+    for (let i = 0; i < 4; i++) final += letras[Math.floor(Math.random() * letras.length)];
+    return `${prefixo}-${final}`;
+}
+
+function criarCupom(recompensa) {
+    const validade = new Date();
+    validade.setDate(validade.getDate() + recompensa.cupom.validadeDias);
+    return {
+        codigo: gerarCodigo(recompensa.cupom.prefixo),
+        beneficio: recompensa.cupom.beneficio,
+        comoUsar: recompensa.cupom.comoUsar,
+        validade: validade.toISOString().slice(0, 10)
+    };
+}
+
+function mostrarCupom(cupom) {
+    cupomAtual = cupom;
+    $('cupom-beneficio').textContent = cupom.beneficio;
+    $('cupom-codigo').textContent = cupom.codigo;
+    $('cupom-como-usar').textContent = cupom.comoUsar;
+    $('cupom-validade').textContent = formatarData(cupom.validade);
+    $('modal-cupom').showModal();
+}
+
+async function copiarTexto(texto, mensagem) {
+    try {
+        await navigator.clipboard.writeText(texto);
+        mostrarAviso(mensagem);
+    } catch {
+        mostrarAviso(texto);
+    }
 }
 
 // ---------- Aviso flutuante ----------
@@ -245,13 +319,8 @@ function mostrarAviso(texto) {
     temporizadorAviso = setTimeout(() => aviso.classList.remove('visivel'), 2500);
 }
 
-async function copiarLink() {
-    try {
-        await navigator.clipboard.writeText(dados.cliente.linkIndicacao);
-        mostrarAviso('Link de indicação copiado!');
-    } catch {
-        mostrarAviso(`Seu link: ${dados.cliente.linkIndicacao}`);
-    }
+function copiarLink() {
+    copiarTexto(dados.cliente.linkIndicacao, 'Link de indicação copiado!');
 }
 
 // ---------- Eventos ----------
@@ -270,12 +339,16 @@ document.addEventListener('click', (evento) => {
 
     const acao = evento.target.closest('[data-acao]')?.dataset.acao;
     if (acao === 'copiar-link') copiarLink();
+    if (acao === 'copiar-cupom' && cupomAtual) copiarTexto(cupomAtual.codigo, 'Código do cupom copiado!');
+
+    const cupomDaLista = evento.target.closest('[data-copiar-cupom]');
+    if (cupomDaLista) copiarTexto(cupomDaLista.dataset.copiarCupom, 'Código do cupom copiado!');
     if (acao === 'atendimento') mostrarAviso('Atendimento pelo WhatsApp (demonstração).');
 
     const menu = evento.target.closest('.item-menu');
     if (menu) {
         if (menu.dataset.tela === 'pontos') location.hash = '#inicio';
-        if (menu.dataset.tela === 'indicacoes') location.hash = '#ganhar';
+        if (menu.dataset.tela === 'indicacoes') location.hash = '#indicacoes';
         if (menu.dataset.tela === 'conexao') mostrarAviso('A tela de conexão ainda não está ligada a esta página.');
     }
 });

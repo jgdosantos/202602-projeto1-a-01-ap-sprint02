@@ -28,10 +28,22 @@
     "pessoasQueIndicaram": 18096
   },
   "recompensas": [
-    { "id": 1, "titulo": "R$ 10 de desconto na conta", "descricao": "Abatido na próxima fatura", "custo": 1000, "icone": "raio" },
-    { "id": 2, "titulo": "R$ 25 de desconto na conta", "descricao": "Abatido na próxima fatura", "custo": 2500, "icone": "dinheiro" },
-    { "id": 3, "titulo": "Cupom em loja parceira", "descricao": "Cashback de 5% no cartão", "custo": 800, "icone": "presente" },
-    { "id": 4, "titulo": "Plante uma árvore", "descricao": "Doação em seu nome", "custo": 300, "icone": "folha" }
+    {
+      "id": 1, "titulo": "R$ 10 de desconto na conta", "descricao": "Abatido na próxima fatura", "custo": 1000, "icone": "raio",
+      "cupom": { "prefixo": "FATURA10", "beneficio": "R$ 10 de desconto na próxima fatura", "comoUsar": "O desconto entra automaticamente na próxima fatura. Guarde o código para conferir.", "validadeDias": 60 }
+    },
+    {
+      "id": 2, "titulo": "R$ 25 de desconto na conta", "descricao": "Abatido na próxima fatura", "custo": 2500, "icone": "dinheiro",
+      "cupom": { "prefixo": "FATURA25", "beneficio": "R$ 25 de desconto na próxima fatura", "comoUsar": "O desconto entra automaticamente na próxima fatura. Guarde o código para conferir.", "validadeDias": 60 }
+    },
+    {
+      "id": 3, "titulo": "Cupom de 10% em loja parceira", "descricao": "Desconto na loja parceira", "custo": 800, "icone": "presente",
+      "cupom": { "prefixo": "LOJA10", "beneficio": "10% de desconto na loja parceira", "comoUsar": "Apresente o código no caixa ou digite no site da loja parceira.", "validadeDias": 30 }
+    },
+    {
+      "id": 4, "titulo": "Plante uma árvore", "descricao": "Doação em seu nome", "custo": 300, "icone": "folha",
+      "cupom": { "prefixo": "ARVORE", "beneficio": "1 árvore plantada em seu nome", "comoUsar": "Use o código para acompanhar o plantio no site do parceiro.", "validadeDias": 90 }
+    }
   ],
   "extrato": [
     { "data": "2026-10-10", "descricao": "Conta paga em dia", "pontos": 100 },

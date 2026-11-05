@@ -10,7 +10,7 @@ O mesmo HTML tem quatro vistas, trocadas pelo `#` da URL:
 | --- | --- | --- |
 | Visão geral | `index.html#inicio` | Saldo, nível, atalhos, números do mês e últimas movimentações. |
 | Ganhar pontos | `index.html#ganhar` | Formas de ganhar pontos e indicação por WhatsApp ou link. |
-| Trocar pontos | `index.html#trocar` | Recompensas com resgate e confirmação; o botão fica bloqueado quando falta saldo. |
+| Trocar pontos | `index.html#trocar` | Recompensas com resgate e confirmação; o botão fica bloqueado quando falta saldo. Cada resgate gera um cupom com código (ex.: 10% na loja parceira), que fica listado em "Meus cupons". |
 | Extrato | `index.html#extrato` | Histórico agrupado por mês, com filtros Todos, Ganhos e Resgates. |
 
 - `estilo.css` e `mobile.css`: cópias do template padrão (cabeçalho, rodapé, moldura do celular).
@@ -18,4 +18,6 @@ O mesmo HTML tem quatro vistas, trocadas pelo `#` da URL:
 - `pontos.js`: leitura dos dados, cálculos e interações.
 - `assets/`: fontes e imagens do template.
 
-O saldo, o nível e os números do mês são calculados a partir do extrato do JSON. Os resgates ficam só na memória da página: ao recarregar, os dados voltam ao JSON original. Todos os valores são fictícios.
+Na barra de navegação, o item **Início** leva à tela inicial do app (`pages/onboarding/telas_finais_onboarding/index.html#tela6`).
+
+O saldo, o nível e os números do mês são calculados a partir do extrato do JSON. Os resgates e os cupons ficam só na memória da página: ao recarregar, os dados voltam ao JSON original. Todos os valores são fictícios.

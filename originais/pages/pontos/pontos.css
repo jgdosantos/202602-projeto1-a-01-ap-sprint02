@@ -920,3 +920,133 @@ ol {
         border-radius: 20px;
     }
 }
+
+/* ===== Barra de navegação com Início (4 itens) ===== */
+.navegacao {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+a.item-menu {
+    text-decoration: none;
+}
+
+/* ===== Cupom gerado no resgate ===== */
+.modal-cupom .modal-conteudo {
+    text-align: center;
+}
+
+.cupom-selo {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    color: var(--verde-medio);
+}
+
+.cupom-selo svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cupom {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 18px 16px;
+    border: 2px dashed var(--verde-medio);
+    border-radius: 14px;
+    background: var(--verde-claro);
+}
+
+.cupom-beneficio {
+    color: var(--verde-escuro);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cupom-rotulo {
+    margin-top: 10px;
+    color: var(--suave);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.cupom-codigo {
+    margin-top: 2px;
+    color: var(--azul);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.cupom-picote {
+    margin: 14px -16px 12px;
+    border-top: 2px dashed var(--verde-borda);
+}
+
+.cupom-info {
+    font-size: 12px;
+}
+
+.cupom-info + .cupom-info {
+    margin-top: 4px;
+    color: var(--suave);
+}
+
+.cupom-info strong {
+    color: var(--texto);
+    font-weight: 600;
+}
+
+/* Lista "Meus cupons" */
+.lista-cupons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.cupom-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 2px dashed var(--verde-borda);
+    border-radius: 12px;
+    background: var(--verde-claro);
+    color: var(--texto);
+    text-align: left;
+}
+
+.cupom-item-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.cupom-item-beneficio {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cupom-item-validade {
+    color: var(--suave);
+    font-size: 11px;
+}
+
+.cupom-item-codigo {
+    flex-shrink: 0;
+    color: var(--azul);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,428 @@
+/* Fontes usadas no aplicativo */
+@font-face {
+    font-family: Poppins;
+    src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('assets/fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+}
+
+/* Medidas de referência: iPhone SE, 375 x 667 pixels CSS */
+:root {
+    --azul: #08068d;
+    --verde: #26d07c;
+    --branco: #ffffff;
+    --fundo: #f6f9f9;
+    --texto: #3e4d5b;
+    --cinza: #c2ccd6;
+    --largura-tela: 375px;
+    --altura-cabecalho: 104px;
+    --altura-rodape: 72px;
+    --margem-lateral: 16px;
+    --fonte: 'Poppins', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #e8edf2;
+    color: var(--texto);
+    font-family: var(--fonte);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+p {
+    margin: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--verde);
+    outline-offset: 2px;
+}
+
+.tela {
+    position: relative;
+    width: 100%;
+    max-width: var(--largura-tela);
+    height: 100vh;
+    height: 100dvh;
+    margin: 0 auto;
+    background: var(--fundo);
+}
+
+.botao-editar {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.botao-editar img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"] {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--cinza);
+    border-radius: 4px;
+    background: var(--branco);
+    color: var(--texto);
+    font: inherit;
+}
+
+/* Cabeçalho fixo */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--largura-tela);
+    height: calc(var(--altura-cabecalho) + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 12px 12px;
+    transform: translateX(-50%);
+    background: var(--azul);
+    color: var(--branco);
+}
+
+.barra-superior {
+    height: 60px;
+    display: grid;
+    grid-template-columns: 88px 1fr 88px;
+    align-items: center;
+    justify-items: center;
+}
+
+.barra-superior > .botao-icone {
+    justify-self: start;
+}
+
+.logo {
+    display: block;
+}
+
+.atalhos {
+    display: flex;
+    justify-self: end;
+}
+
+.lista-convites {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.lista-convites .cartao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 12px 16px;
+    border: 1px solid var(--cinza);
+    border-radius: 8px;
+    background: var(--branco);
+}
+.convite-pessoa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.convite-avatar {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+}
+
+.voltar {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    margin-left: -10px;
+    color: var(--texto);
+}
+
+.voltar svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.progresso {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0 16px;
+}
+
+.progresso span {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--cinza);
+}
+
+.subtitulo-familia {
+    margin: 24px 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+
+#contagem-familia {
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.progresso span.ativo {
+    background: var(--azul);
+}
+
+.botao-icone {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--branco);
+}
+
+.botao-icone svg,
+.faixa-indicacao svg,
+.item-menu svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--branco);
+    border-radius: 50%;
+    background: #e8eafe;
+    color: var(--azul);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.faixa-indicacao {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: var(--branco);
+    color: var(--azul);
+}
+
+.faixa-indicacao svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.faixa-indicacao p {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* Apenas o conteúdo central rola */
+.conteudo {
+    position: absolute;
+    top: calc(var(--altura-cabecalho) + env(safe-area-inset-top, 0px));
+    bottom: calc(var(--altura-rodape) + env(safe-area-inset-bottom, 0px));
+    width: 100%;
+    padding: var(--margem-lateral);
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+    overscroll-behavior-y: contain;
+}
+
+/* Rodapé fixo */
+.rodape {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--largura-tela);
+    height: calc(var(--altura-rodape) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-top: 1px solid #e1e6ea;
+    transform: translateX(-50%);
+    background: var(--branco);
+}
+
+.botao {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.botao-primario {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: var(--branco);
+}
+
+.botao-secundario {
+    background: var(--branco);
+    border-color: var(--cinza);
+    color: var(--texto);
+}
+
+/* Campos do formulário */
+.campo {
+    margin: 0 0 20px;
+    padding: 0;
+    border: 0;
+}
+
+.campo label,
+.campo legend {
+    display: block;
+    margin-bottom: 8px;
+    padding: 0;
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo input[type="text"],
+.campo input[type="tel"] {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--cinza);
+    border-radius: 4px;
+    background: var(--branco);
+    color: var(--texto);
+    font: inherit;
+}
+
+.navegacao {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.item-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 44px;
+    padding: 10px 4px;
+    border: 0;
+    background: transparent;
+    color: #a4b3c1;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.item-menu[aria-current="page"] {
+    color: var(--azul);
+    font-weight: 600;
+}
+
+.item-menu[aria-current="page"]::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--azul);
+}
+
+.pular-conteudo {
+    position: fixed;
+    top: -100px;
+    left: 16px;
+    z-index: 3;
+    padding: 12px;
+    background: var(--branco);
+    color: var(--azul);
+}
+
+.pular-conteudo:focus {
+    top: 8px;
+}
+
+@media (max-width: 340px) {
+    .barra-superior {
+        grid-template-columns: 80px 1fr 80px;
+    }
+
+    .faixa-indicacao {
+        gap: 4px;
+    }
+
+    .faixa-indicacao p {
+        font-size: 9px;
+    }
+}

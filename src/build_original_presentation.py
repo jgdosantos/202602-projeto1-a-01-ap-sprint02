@@ -112,54 +112,97 @@ def css_file(path, top_inset):
     return css
 
 
+def find_file(folder, name):
+    """Arquivo da tela, aceitando diferença de maiúsculas (ex.: editar.png → Editar.png)."""
+    exact = folder / name
+    if folder.is_dir():
+        names = {f.name: f for f in folder.iterdir()}   # nome exato, mesmo em disco que ignora maiúsculas (macOS)
+        if name in names: return names[name], False
+        for n, f in names.items():
+            if n.lower() == name.lower(): return f, True
+    return exact, False
+
+
+# Correções de referência quebrada no código original, aplicadas só na apresentação.
+# O index.html da Fatura 0 aponta para fatura0.js, mas o arquivo no repositório se chama fatura.js.
+SCRIPT_FIXES = {('fatura_zero', 'fatura0.js'): 'fatura.js'}
+# Trechos que travam o script original na inicialização. Cada correção só é aplicada se o trecho existir.
+# Fatura 0: o botão do player não tem o elemento [data-player-botao-texto], então elBotaoTexto é null
+# e atualizarBotao() lança erro antes de ligar a navegação. O botão já troca de ícone pela classe .pausado.
+SCRIPT_PATCHES = {'fatura_zero': [
+    ('elBotaoTexto.textContent = texto;', 'if (elBotaoTexto) elBotaoTexto.textContent = texto;',
+     'o botão do player não tem [data-player-botao-texto]; o texto só é escrito se o elemento existir')]}
+adaptations = []
+
 pages = {}
 for name, rel, title in [
     ('cadastro', 'pages/cadastro/index.html', 'Cadastro e comunicação'),
     ('onboarding', 'pages/onboarding/index.html', 'Onboarding'),
+    ('fatura_zero', 'pages/fatura_zero/index.html', 'Fatura Zero'),
     ('pontos', 'pages/pontos/index.html', 'Meus pontos'),
-    ('familia', 'pages/PlanoFamilia/Servidor Java/publico/index.html', 'Plano Família')]:
+    ('familia', 'pages/PlanoFamilia/index.html', 'Plano Família')]:
     path = REPO / rel; html = path.read_text(encoding='utf-8-sig')
     sheets = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"', html)
     has_status = 'class="barra-status"' in html
     css = '\n'.join(css_file(path.parent / s, 0 if has_status else SAFE_TOP) for s in sheets)
     body = re.search(r'<body[^>]*>(.*?)</body>', html, re.S | re.I).group(1)
+    img_dir = path.parent / 'assets/img'
+    # Imagens que os scripts montam em tempo de execução (assets/img/...).
+    imgs = {f.name: asset(f) for f in sorted(img_dir.iterdir()) if f.is_file()} if img_dir.is_dir() else {}
     scripts = []
     for sm in re.finditer(r'<script([^>]*)>(.*?)</script>', html, re.S | re.I):
         src = re.search(r'src="([^"]+)"', sm.group(1))
-        source = (path.parent / src.group(1)).read_text(encoding='utf-8-sig') if src else sm.group(2)
+        if src:
+            file_name = src.group(1)
+            if not (path.parent / file_name).exists() and (name, file_name) in SCRIPT_FIXES:
+                adaptations.append('%s: <script src="%s"> não existe; usado %s.' % (name, file_name, SCRIPT_FIXES[(name, file_name)]))
+                file_name = SCRIPT_FIXES[(name, file_name)]
+            script_path = path.parent / file_name
+            if not script_path.exists():
+                missing.append(str(script_path)); continue
+            source = script_path.read_text(encoding='utf-8-sig')
+        else:
+            source = sm.group(2)
         source = re.sub(r"import \{ buscarPontos \} from '[^']+';", '', source)
+        # <dialog>.showModal() abre na camada superior da página inteira e sairia do iPhone.
+        # Na apresentação o diálogo abre com show() e fica preso à tela, com um fundo escurecido próprio.
+        if '.showModal()' in source:
+            source = source.replace('.showModal()', '.show()')
+            adaptations.append('%s: <dialog>.showModal() trocado por show() para o diálogo ficar dentro do aparelho.' % name)
+        for old, new, why in SCRIPT_PATCHES.get(name, []):
+            if old in source:
+                source = source.replace(old, new); adaptations.append('%s: %s.' % (name, why))
         # Leituras de JSON precisam ser incorporadas como em `pontos` (buscarPontos).
         if re.search(r'\bfetch\s*\(', source):
             warnings.append('%s: o script usa fetch(); incorpore o JSON correspondente.' % name)
+        def literal(m):
+            f, case_fix = find_file(img_dir, m.group(2))
+            if not f.exists():
+                missing.append(str(img_dir / m.group(2))); return m.group(0)
+            if case_fix: adaptations.append('%s: script pede assets/img/%s; o arquivo é %s.' % (name, m.group(2), f.name))
+            return m.group(1) + asset(f) + m.group(1)
+        source = re.sub(r"""(['"])assets/img/([^'"$]+)\1""", literal, source)
+        # `assets/img/${...}` montado em tempo de execução: resolvido pelo mapa da tela (__img).
+        source = re.sub(r"`assets/img/\$\{([^}]+)\}`", r"__img(\1)", source)
         scripts.append(source)
     body = re.sub(r'<script[^>]*>.*?</script>', '', body, flags=re.S | re.I)
     body = re.sub(r'\bsrc="([^"]+)"', lambda m: 'src="' + asset(path.parent / m.group(1)) + '"', body)
-    if name == 'familia':
-        logo = asset(REPO / 'pages/pontos/assets/img/logo-cabecalho.svg')
-        body = body.replace('<span class="logo logo-caixa">LOGO</span>', '<img class="logo" src="' + logo + '" alt="Bulbe" width="100" height="29">')
     css += ('\n:host{display:block;font-family:Poppins,Arial,sans-serif;--largura-tela:100%%;}'
             ' .original-body{margin:0;width:100%%;height:%dpx;min-height:%dpx;} [hidden]{display:none!important;}'
             ' .app,.tela{max-width:none!important;}'
             # A barra de status ilustrativa vira só a faixa da área segura; hora e ícones vêm do aparelho da apresentação.
             ' .barra-status{height:%dpx!important;min-height:%dpx!important;padding:0!important;}'
-            ' .barra-status>*{visibility:hidden!important;}') % (SCREEN_H, SCREEN_H, SAFE_TOP, SAFE_TOP)
+            ' .barra-status>*{visibility:hidden!important;}'
+            # Diálogos abertos com show(): presos à base da tela, acima do indicador de início, com fundo escurecido.
+            ' .original-body dialog[open]{position:absolute;inset:auto 0 0 0;margin:0 auto;z-index:60;max-height:calc(100%% - %dpx);overflow:auto;'
+            'padding-bottom:%dpx;box-shadow:0 0 0 100vmax rgb(10 12 40 / 45%%);}') % (SCREEN_H, SCREEN_H, SAFE_TOP, SAFE_TOP, SAFE_TOP, SAFE_BOTTOM)
     # Telas que tratam ← e → sozinhas (Onboarding) ficam com as setas quando o foco está nelas.
     owns_arrows = any("'ArrowRight'" in src for src in scripts)
-    pages[name] = {'body': body, 'css': css, 'scripts': scripts, 'title': title, 'ownsArrows': owns_arrows}
+    pages[name] = {'body': body, 'css': css, 'scripts': scripts, 'title': title, 'ownsArrows': owns_arrows, 'imgs': imgs,
+                   'folder': path.parent.relative_to(REPO / 'pages').parts[0]}
 
 
-# Fatura Zero ainda não tem código: a apresentação mostra a história e os wireframes registrados.
-def story(md_name, story_id):
-    text = (REPO / 'docs' / md_name).read_text(encoding='utf-8-sig')
-    row = re.search(r'^\|\s*' + story_id + r'\s*\|\s*(.+?)\s*\|', text, re.M)
-    section = re.search(r'###\s*' + story_id + r'\s*\n(.*?)(?=\n###|\n\*\*Indicador|\Z)', text, re.S)
-    indicator = re.search(r'\*\*Indicador que pretende mover:\*\*\s*(.+)', text)
-    criteria = re.findall(r'^- \[[ x]\]\s*(.+)$', section.group(1), re.M) if section else []
-    if not row: missing.append('%s: história %s' % (md_name, story_id))
-    return {'id': story_id, 'source': 'originais/docs/' + md_name, 'text': row.group(1) if row else '',
-            'criteria': criteria, 'indicator': indicator.group(1).strip().rstrip('.') if indicator else ''}
-
-
+# Wireframes de referência mostrados no botão "Wireframes" (Onboarding e Fatura Zero).
 WF = REPO / 'docs/wireframes'
 wireframes = {
     'fatura_zero': [
@@ -186,8 +229,7 @@ wireframes = {k: [wf_entry(f, c, 'tela' if k == 'onboarding' else 'esboco') for 
 brand = asset(REPO / 'pages/cadastro/assets/img/logo-azul.svg').removeprefix('__ASSET_').removesuffix('__')
 pack = {'assets': assets, 'brand': brand, 'pages': pages,
         'points': json.loads((REPO / 'data/pontos.json').read_text(encoding='utf-8-sig')),
-        'wireframes': wireframes,
-        'stories': {'fatura_zero': story('historias3.md', 'HU03'), 'onboarding': story('historias4.md', 'HU04')}}
+        'wireframes': wireframes}
 data = base64.b64encode(gzip.compress(json.dumps(pack, ensure_ascii=False, separators=(',', ':')).encode(), compresslevel=9)).decode()
 shell = (OUT / 'presentation-shell.html').read_text(encoding='utf-8')
 shell = shell.replace('<!--PACK-->', '<script type="application/octet-stream" data-original-package>' + data + '</script>')
@@ -206,4 +248,4 @@ standalone = ('<!doctype html>\n<html lang="pt-BR"><head><meta charset="utf-8">'
 (OUT.parent / 'index.html').write_text(standalone, encoding='utf-8')
 print(json.dumps({'output': str(dest), 'bytes': dest.stat().st_size, 'index_bytes': (OUT.parent / 'index.html').stat().st_size,
                   'assets': len(assets), 'pages': list(pages), 'wireframes': {k: len(v) for k, v in wireframes.items()},
-                  'missing': missing, 'warnings': warnings}, ensure_ascii=False, indent=1))
+                  'missing': missing, 'warnings': warnings, 'adaptations': sorted(set(adaptations))}, ensure_ascii=False, indent=1))

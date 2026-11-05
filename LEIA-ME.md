@@ -17,11 +17,15 @@ A apresentação tem oito seções:
 
 Os dados da capa (Ibmec BH, Turma A, Squad 01, 2º semestre de 2026, cliente Bulbe Energia e equipe) vêm de `originais/README.md`. O 32,4% e o período vêm de `originais/docs/jornada.md` e do mesmo README.
 
-Cadastro, Onboarding, Pontos e Plano Família mostram as telas originais do projeto dentro de um iPhone 16 (tela de 393 × 852 pt, Dynamic Island, moldura de titânio e botões laterais). Todas as telas e os wireframes usam o mesmo aparelho e o mesmo formato. Dá para clicar e navegar dentro delas. O botão **Reiniciar tela** volta cada uma ao estado inicial. Ao sair de uma seção e voltar depois, a tela continua onde estava.
+Cadastro, Onboarding, Fatura Zero, Pontos e Plano Família mostram as telas originais do projeto dentro de um iPhone 16 (tela de 393 × 852 pt, Dynamic Island, moldura de titânio e botões laterais). Todas as telas e os wireframes usam o mesmo aparelho e o mesmo formato. Dá para clicar e navegar dentro delas. O botão **Reiniciar tela** volta cada uma ao estado inicial. Ao sair de uma seção e voltar depois, a tela continua onde estava.
 
 O Onboarding usa a versão final da HU04 (10 telas: onboarding em 5 etapas, abas Início e Contas, chip "Protótipo" que simula janeiro e fevereiro e a folha "Suas 2 contas"). O botão **Wireframes** mostra os oito wireframes da história de Marina; as setas ao lado do texto trocam o wireframe exibido.
 
-A Fatura Zero faz parte desta sprint, mas as telas ainda não estão no projeto: por enquanto a seção mostra os cinco wireframes `historias3.1.png` a `historias3.5.png`. Quando o código chegar em `originais/pages/fatura_zero/`, ele entra na apresentação como as outras telas.
+A Fatura Zero mostra as telas da pasta `pages/fatura 0/` do projeto: aviso de que a Fatura 0 foi escaneada, "Esta fatura NÃO deve ser paga", animação "Como funciona a Fatura 0" (o botão Finalizar libera no fim) e "Entenda sua conta de luz", com simulador de economia e cards que abrem e fecham. O botão **Wireframes** mostra os cinco wireframes `historias3.1.png` a `historias3.5.png`.
+
+O Plano Família mostra as telas de `pages/PlanoFamilia/`: apresentação do plano, sua família, quem convidar (até 4 pessoas, por WhatsApp, SMS, e-mail ou carta), conferência e edição dos convites, convites enviados e a tela de quem recebe o convite.
+
+Botões das telas que levam para outra página do app (por exemplo, "Ir para minha conta" na Fatura Zero ou "Início" em Pontos) abrem a seção correspondente da apresentação.
 
 Os resgates, convites e pagamentos são demonstrativos. Nenhum dado é enviado à Bulbe.
 
@@ -41,13 +45,13 @@ A apresentação usa a fonte Poppins e as cores da Bulbe. Os tokens ficam no in�
 
 | Token | Valor | Origem |
 | --- | --- | --- |
-| `--bulbe-azul` | #08068d | `originais/pages/padrao/estilo.css` (`--azul`) |
-| `--bulbe-verde` | #26d07c | `padrao/estilo.css` (`--verde`) |
-| `--bulbe-fundo` | #f6f9f9 | `padrao/estilo.css` (`--fundo`) |
-| `--bulbe-texto` | #3e4d5b | `padrao/estilo.css` (`--texto`) |
-| `--bulbe-cinza` | #c2ccd6 | `padrao/estilo.css` (`--cinza`), usado nas linhas |
-| `--bulbe-branco` | #ffffff | `padrao/estilo.css` (`--branco`) |
-| `--bulbe-fonte` | Poppins | `padrao/estilo.css` (`--fonte`) |
+| `--bulbe-azul` | #08068d | `estilo.css` do modelo padrão (`--azul`) |
+| `--bulbe-verde` | #26d07c | `estilo.css` do modelo padrão (`--verde`) |
+| `--bulbe-fundo` | #f6f9f9 | `estilo.css` do modelo padrão (`--fundo`) |
+| `--bulbe-texto` | #3e4d5b | `estilo.css` do modelo padrão (`--texto`) |
+| `--bulbe-cinza` | #c2ccd6 | `estilo.css` do modelo padrão (`--cinza`), usado nas linhas |
+| `--bulbe-branco` | #ffffff | `estilo.css` do modelo padrão (`--branco`) |
+| `--bulbe-fonte` | Poppins | `estilo.css` do modelo padrão (`--fonte`) |
 | `--bulbe-azul-escuro` | #060462 | `cadastro.css` / `onboarding.css` |
 | `--bulbe-azul-ceu` | #0762c7 | `cadastro.css` / `onboarding.css` e logo |
 | `--bulbe-verde-texto` | #18814d | `onboarding.css` (verde legível sobre branco) |
@@ -61,16 +65,17 @@ A apresentação usa a fonte Poppins e as cores da Bulbe. Os tokens ficam no in�
 
 Tamanhos de texto pensados para projeção: os tokens `--fs-*` definem os mínimos em 1280 × 720 (títulos ≥ 52 px, frase da conclusão ≥ 44 px, textos ≥ 22 px, rótulos ≥ 16 px, abas e botões ≥ 15 px) e crescem com a janela. As telas do app dentro do iPhone mantêm os tamanhos originais.
 
-O azul, o verde e o fundo foram conferidos no `Bulbe____Aplicativo.pdf` (pasta `wireframes-bulbe`), que usa os mesmos valores. Não há outro arquivo formal de design system no projeto. A barra de status dentro do iPhone mantém a fonte do sistema, porque representa o próprio aparelho.
+O modelo `pages/padrao/` saiu do repositório do grupo no commit 92e2e7a; os mesmos valores continuam em `originais/pages/pontos/estilo.css` e `originais/pages/PlanoFamilia/estilo.css`. O azul, o verde e o fundo foram conferidos no `Bulbe____Aplicativo.pdf` (pasta `wireframes-bulbe`), que usa os mesmos valores. Não há outro arquivo formal de design system no projeto. A barra de status dentro do iPhone mantém a fonte do sistema, porque representa o próprio aparelho.
 
 ## Organização
 
 - `index.html`: apresentação pronta para abrir e enviar. É gerada pelo script, então não edite este arquivo à mão.
 - `src/presentation-shell.html`: estrutura da apresentação, textos, estilos, menu e código de navegação.
-- `src/build_original_presentation.py`: script que reúne telas, fontes, imagens, wireframes, histórias e dados na apresentação.
+- `src/build_original_presentation.py`: script que reúne telas, fontes, imagens, wireframes e dados na apresentação.
 - `src/bulbe-apresentacao-original.html`: versão incorporável gerada pelo script.
 - `originais/`: cópia dos códigos, dados, documentos e recursos do projeto usados como referência.
-  - `originais/pages/onboarding/` é a cópia de `202602-projeto1-a-01/pages/onboarding/telas_finais_onboarding/` (HU04).
+  - `originais/pages/` espelha `pages/` do repositório do grupo no commit 92e2e7a (origin/main). Exceções: `onboarding/` é a cópia de `pages/onboarding/telas_finais_onboarding/` (HU04) e `fatura_zero/` é a cópia de `pages/fatura 0/` sem `teste.html` e `teste.css`.
+  - `originais/docs`, `originais/data` e `originais/README.md` também vêm desse commit.
 
 ## Como as telas são incorporadas
 
@@ -83,7 +88,14 @@ Formato iPhone 16, aplicado igual em todas as telas:
 - A hora, o sinal, a bateria e o indicador de início são do aparelho da apresentação e mudam de branco para preto conforme o fundo da tela.
 - Wireframes: com o Pillow instalado, o script recorta a moldura de celular desenhada. Nos wireframes da HU04 também saem a barra de status e o indicador desenhados.
 
-Durante a apresentação, cada tela recebe `document`, `window`, `location`, `sessionStorage` e `history` próprios. No Onboarding, `history.pushState`, `history.back()` e `location.hash` usam uma pilha interna da tela, então não alteram o endereço da apresentação nem interferem nas outras telas.
+Durante a apresentação, cada tela recebe `document`, `window`, `location`, `sessionStorage` e `history` próprios. `history.pushState`, `history.back()` e `location.hash` (Onboarding, Fatura Zero, Cadastro, Pontos) usam uma pilha interna da tela, então não alteram o endereço da apresentação nem interferem nas outras telas.
+
+Ajustes feitos só na apresentação, sem mudar os arquivos em `originais/` (o build lista cada um em `adaptations`):
+
+- Fatura Zero: o `index.html` chama `fatura0.js`, mas o arquivo se chama `fatura.js`. O build usa `fatura.js`.
+- Fatura Zero: o botão do player não tem o elemento `[data-player-botao-texto]` que o script espera, e o script parava com erro antes de ligar a navegação. Na apresentação, o texto só é escrito se o elemento existir.
+- Fatura Zero e Plano Família: imagens que o script monta em tempo de execução (`assets/img/...`) são trocadas pelas versões incorporadas. O Plano Família pede `editar.png`, mas o arquivo é `Editar.png` (funciona no macOS, quebra em servidores que diferenciam maiúsculas).
+- Pontos: os diálogos abrem com `show()` em vez de `showModal()`, para ficarem dentro do iPhone, com fundo escurecido próprio.
 
 ## Atualizar a apresentação
 

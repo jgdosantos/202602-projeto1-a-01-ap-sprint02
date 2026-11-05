@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120"><g stroke="#ff9e1b" stroke-width="6" stroke-linecap="round">
+<path d="M60 10v13" transform="rotate(0 60 60)"/>
+<path d="M60 10v13" transform="rotate(30 60 60)"/>
+<path d="M60 10v13" transform="rotate(60 60 60)"/>
+<path d="M60 10v13" transform="rotate(90 60 60)"/>
+<path d="M60 10v13" transform="rotate(120 60 60)"/>
+<path d="M60 10v13" transform="rotate(150 60 60)"/>
+<path d="M60 10v13" transform="rotate(180 60 60)"/>
+<path d="M60 10v13" transform="rotate(210 60 60)"/>
+<path d="M60 10v13" transform="rotate(240 60 60)"/>
+<path d="M60 10v13" transform="rotate(270 60 60)"/>
+<path d="M60 10v13" transform="rotate(300 60 60)"/>
+<path d="M60 10v13" transform="rotate(330 60 60)"/>
+</g><circle cx="60" cy="60" r="27" fill="#ff9e1b"/><circle cx="60" cy="60" r="19" fill="#ffc766"/></svg>

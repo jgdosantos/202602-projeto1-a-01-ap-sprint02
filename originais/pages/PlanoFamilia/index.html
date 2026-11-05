@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08068d">
+    <title>Bulbe | Tela padrão</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <a class="pular-conteudo" href="#conteudo">Ir ao conteúdo</a>
+
+    <div class="aparelho">
+<div class="tela">
+        <div class="barra-status" aria-label="Barra de status ilustrativa">
+            <span class="horario-status">9:41</span>
+            <div class="status-direita">
+                <span class="sinal-status" role="img" aria-label="Sinal de celular completo"><i></i><i></i><i></i><i></i></span>
+                <span class="rede-status">4G</span>
+                <span class="bateria-status" role="img" aria-label="Bateria em 80%"><span></span></span>
+            </div>
+        </div>
+
+        <header class="cabecalho">
+            <div class="barra-superior">
+                <button class="botao-icone" type="button" aria-label="Abrir menu">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+
+                <img class="logo" src="assets/img/logo-cabecalho.svg" alt="Bulbe">
+
+                <div class="atalhos">
+                    <button class="botao-icone" type="button" aria-label="Notificações">
+                        <img src="assets/img/notificacao.svg" alt="">
+                    </button>
+                    <button class="botao-icone" type="button" aria-label="Meu perfil">
+                        <span class="avatar" aria-hidden="true">AM</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="faixa-indicacao">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/></svg>
+                <p>Convide e ganhe <strong>300 pontos</strong> por familiar conectado</p>
+            </div>
+        </header>
+
+        <main class="conteudo" id="conteudo" tabindex="-1">
+
+            <section class="tela-plano" id="tela-plano-familia" aria-labelledby="titulo-plano-familia">
+                <div class="ilustracao" role="img" aria-label="Ilustração do plano família"></div>
+
+                <h1 id="titulo-plano-familia">Plano família: inclua quem você quer cuidar</h1>
+                <p>Convide filhos, netos ou outras pessoas de confiança para fazer parte do seu plano. Você escolhe quem entra.</p>
+
+                <ol class="passos">
+                    <li>
+                        <span class="numero-passo" aria-hidden="true">1</span>
+                        <div>
+                            <strong>Você convida</strong>
+                            <p>Até 4 pessoas, em 2 minutos.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="numero-passo" aria-hidden="true">2</span>
+                        <div>
+                            <strong>A pessoa aceita</strong>
+                            <p>Ela recebe o convite e confirma.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="numero-passo" aria-hidden="true">3</span>
+                        <div>
+                            <strong>Plano família ativo</strong>
+                            <p>Todos acompanham a fatura da Bulbe.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <aside class="aviso">
+                    <span class="selo">Importante</span>
+                    <p>Ninguém entra sem aceitar o convite. Você pode <strong>cancelar um convite</strong> a qualquer momento.</p>
+                </aside>
+
+                <button class="botao botao-primario" type="button" data-ir="tela-sua-familia">Convidar pessoas</button>
+                <button class="botao botao-secundario" type="button" data-ir="tela-convidado">Recebi um convite · Entrar</button>
+            </section>
+
+            <section class="tela-plano" id="tela-sua-familia" aria-labelledby="titulo-sua-familia" hidden>
+                <a class="voltar" href="#tela-plano-familia" aria-label="Voltar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 14-5-5 5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></a>
+                <h1 id="titulo-sua-familia">Sua família</h1>
+                <p>Veja quem faz parte do seu plano família.</p>
+
+                <h2 class="subtitulo-familia">Titular da assinatura</h2>
+                <ul class="lista-convites">
+                    <li class="cartao">
+                        <div class="convite-pessoa">
+                            <img class="convite-avatar" src="assets/img/avatar-convite.png" alt="">
+                            <div>
+                                <strong id="nome-titular">Você</strong>
+                                <p>Titular</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <h2 class="subtitulo-familia">Convidados</h2>
+                <p id="contagem-familia"></p>
+                <ul class="lista-convites" id="lista-familia"></ul>
+
+                <button class="botao botao-primario" type="button" data-ir="tela-quem-convidar">Convidar pessoa</button>
+            </section>
+
+            <section class="tela-plano" id="tela-quem-convidar" aria-labelledby="titulo-quem-convidar" hidden>
+                <a class="voltar" href="#tela-sua-familia" aria-label="Voltar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 14-5-5 5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></a>
+                <p class="passo-atual">Passo 1 de 3</p>
+                <div class="progresso" aria-hidden="true"><span class="ativo"></span><span></span><span></span></div>
+                <h1 id="titulo-quem-convidar">Quem você quer convidar?</h1>
+
+            <form class="formulario" id="form-convite">
+            <div class="campo">
+                <label for="nome-completo">Nome completo</label>
+                <input type="text" id="nome-completo" name="nome" placeholder="Ex.: Maria Souza" autocomplete="name">
+            </div>
+            <fieldset class="campo">
+                <legend>Como enviar o convite</legend>
+                <div class="opcoes-lista">
+                    <label class="opcao">
+                        <input type="radio" name="envio" value="whatsapp" checked>
+                        <span>WhatsApp · celular</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="envio" value="sms">
+                        <span>SMS · celular</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="envio" value="email">
+                        <span>E-mail</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="envio" value="correios">
+                        <span>Carta pelos Correios · exige endereço</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="campo">
+                <label class="so-leitor" for="contato">Celular para envio do convite</label>
+                <input type="tel" id="contato" name="contato" placeholder="(__) _____-____" inputmode="tel" autocomplete="tel">
+            </div>
+
+            <button class="botao botao-primario" type="submit">Continuar</button>
+            <button class="botao botao-secundario" type="reset">Adicionar outra pessoa</button>
+            </form>
+            </section>
+
+            <section class="tela-plano" id="tela-confira-convites" aria-labelledby="titulo-confira-convites" hidden>
+                <a class="voltar" href="#tela-quem-convidar" aria-label="Voltar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 14-5-5 5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></a>
+                <p class="passo-atual">Passo 2 de 3</p>
+                <div class="progresso" aria-hidden="true"><span class="ativo"></span><span class="ativo"></span><span></span></div>
+                <h1 id="titulo-confira-convites">Confira os convites</h1>
+
+                <ul class="lista-convites">
+                    <li class="cartao">
+                        <div>
+                            <strong>Maria Souza</strong>
+                            <p>Filha · WhatsApp</p>
+                        </div>
+                        <button class="link" type="button" aria-label="Editar convite de Maria Souza">Editar</button>
+                    </li>
+                    <li class="cartao">
+                        <div>
+                            <strong>João Souza</strong>
+                            <p>Neto · Carta pelos Correios</p>
+                        </div>
+                        <button class="link" type="button" aria-label="Editar convite de João Souza">Editar</button>
+                    </li>
+                </ul>
+
+                <div class="cartao cartao-mensagem">
+                    <p class="rotulo">Mensagem que a pessoa vai receber</p>
+                    <p>[Nome] convidou você para o plano família da Bulbe. Veja o que é e aceite ou recuse: [link]. Não é cobrança.</p>
+                </div>
+
+                <label class="autorizacao">
+                    <input type="checkbox" name="autorizacao">
+                    <span>Tenho autorização para informar os dados dessas pessoas.</span>
+                </label>
+
+                <button class="botao botao-primario" type="button" data-ir="tela-plano-familia">Enviar 2 convites</button>
+                <button class="botao botao-secundario" type="button" data-ir="tela-quem-convidar">Adicionar outra pessoa</button>
+            </section>
+
+            <section class="tela-plano" id="tela-convites-enviados" aria-labelledby="titulo-convites-enviados" hidden>
+                <div class="ilustracao" role="img" aria-label="Ilustração de convites enviados"></div>
+
+                <p class="passo-atual">Passo 3 de 3</p>
+                <div class="progresso" aria-hidden="true"><span class="ativo"></span><span class="ativo"></span><span class="ativo"></span></div>
+                <h1 id="titulo-convites-enviados">Convites enviados!</h1>
+                <p id="contagem-enviados" role="status"></p>
+
+                <ul class="lista-convites"></ul>
+
+                <aside class="aviso">
+                    <span class="selo">Importante</span>
+                    <p>Ninguém entra sem aceitar o convite. Você pode <strong>cancelar um convite</strong> a qualquer momento.</p>
+                </aside>
+
+                <button class="botao botao-primario" type="button" data-ir="tela-sua-familia">Concluir</button>
+                <button class="botao botao-secundario" type="button" data-ir="tela-quem-convidar">Convidar mais pessoas</button>
+            </section>
+
+            <section class="tela-plano" id="tela-convidado" aria-labelledby="titulo-convidado" hidden>
+                <div class="ilustracao" role="img" aria-label="Ilustração do convite"></div>
+
+                <h1 id="titulo-convidado">Você foi convidado(a) para um plano família</h1>
+
+                <div class="cartao cartao-convite">
+                    <p class="rotulo">Quem convidou</p>
+                    <strong>Carlos Vicente</strong>
+                    <p>Convite enviado em 22/10/2026</p>
+                </div>
+
+                <p><strong>O que é a Bulbe?</strong> Empresa que fornece energia de uma usina solar parceira com desconto na conta de luz.</p>
+                <p><strong>O que muda para você?</strong> Você poderá acompanhar a fatura. <strong>Este convite não gera cobrança.</strong></p>
+
+                <button class="botao botao-primario" type="button" data-ir="tela-plano-familia">Aceitar convite</button>
+                <button class="botao botao-secundario" type="button" data-ir="tela-plano-familia">Agora não</button>
+                <a class="link" href="#tela-plano-familia">Não conheço quem convidou</a>
+            </section>
+
+        </main>
+
+        <footer class="rodape">
+            <nav class="navegacao" aria-label="Navegação principal">
+                <button class="item-menu" type="button" data-tela="conexao">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>
+                    <span>Conexão</span>
+                </button>
+                <button class="item-menu" type="button" data-tela="pontos" aria-current="page">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m9 12-2 9 5-3 5 3-2-9"/></svg>
+                    <span>Pontos</span>
+                </button>
+                <button class="item-menu" type="button" data-tela="indicacoes">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M19 7v6M16 10h6"/></svg>
+                    <span>Indicações</span>
+                </button>
+            </nav>
+        </footer>
+    </div>
+    </div>
+
+    
+    <script src="comportamento.js"></script>
+</body>
+</html>
