@@ -19,9 +19,9 @@ Os dados da capa (Ibmec BH, Turma A, Squad 01, 2º semestre de 2026, cliente Bul
 
 Cadastro, Onboarding, Fatura Zero, Pontos e Plano Família mostram as telas originais do projeto dentro de um iPhone 16 (tela de 393 × 852 pt, Dynamic Island, moldura de titânio e botões laterais). Todas as telas e os wireframes usam o mesmo aparelho e o mesmo formato. Dá para clicar e navegar dentro delas. O botão **Reiniciar tela** volta cada uma ao estado inicial. Ao sair de uma seção e voltar depois, a tela continua onde estava.
 
-O Onboarding usa a versão final da HU04 (10 telas: onboarding em 5 etapas, abas Início e Contas, chip "Protótipo" que simula janeiro e fevereiro e a folha "Suas 2 contas"). O botão **Wireframes** mostra os oito wireframes da história de Marina; as setas ao lado do texto trocam o wireframe exibido.
+O Onboarding usa a versão final da HU04 (10 telas: onboarding em 5 etapas, abas Início e Contas, chip "Protótipo" que simula janeiro e fevereiro e a folha "Suas 2 contas").
 
-A Fatura Zero mostra as telas da pasta `pages/fatura 0/` do projeto: aviso de que a Fatura 0 foi escaneada, "Esta fatura NÃO deve ser paga", animação "Como funciona a Fatura 0" (o botão Finalizar libera no fim) e "Entenda sua conta de luz", com simulador de economia e cards que abrem e fecham. O botão **Wireframes** mostra os cinco wireframes `historias3.1.png` a `historias3.5.png`.
+A Fatura Zero mostra as telas da pasta `pages/fatura 0/` do projeto: aviso de que a Fatura 0 foi escaneada, "Esta fatura NÃO deve ser paga", animação "Como funciona a Fatura 0" (o botão Finalizar libera no fim) e "Entenda sua conta de luz", com simulador de economia e cards que abrem e fecham.
 
 O Plano Família mostra as telas de `pages/PlanoFamilia/`: apresentação do plano, sua família, quem convidar (até 4 pessoas, por WhatsApp, SMS, e-mail ou carta), conferência e edição dos convites, convites enviados e a tela de quem recebe o convite.
 

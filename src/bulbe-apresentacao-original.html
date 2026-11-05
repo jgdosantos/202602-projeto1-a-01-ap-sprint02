@@ -394,10 +394,10 @@ const slides=[
  {id:'cadastro',tab:'Cadastro',kind:'live',screen:'cadastro',n:'01',persona:'Helena Martins',title:'Cadastro e comunicação.',
   lead:'O cliente confirma os dados e escolhe onde quer ser avisado.',
   points:['Dados revisados antes de confirmar','Aviso no canal preferido'],status:'Ao vivo'},
- {id:'onboarding',tab:'Onboarding',kind:'live',screen:'onboarding',wireframes:'onboarding',n:'02',persona:'Marina',title:'Duas contas, sem surpresa.',
+ {id:'onboarding',tab:'Onboarding',kind:'live',screen:'onboarding',n:'02',persona:'Marina',title:'Duas contas, sem surpresa.',
   lead:'Antes da primeira fatura, o app avisa que virão duas contas.',
   points:['Confirmação obrigatória “Entendi”','Ciclo 1 de 2 no app'],status:'Ao vivo'},
- {id:'fatura-zero',tab:'Fatura Zero',kind:'live',screen:'fatura_zero',wireframes:'fatura_zero',n:'03',persona:'Mariana Dulce',title:'Fatura Zero.',
+ {id:'fatura-zero',tab:'Fatura Zero',kind:'live',screen:'fatura_zero',n:'03',persona:'Mariana Dulce',title:'Fatura Zero.',
   lead:'Uma fatura de R$ 0,00 explica a conta antes da primeira cobrança.',
   points:['Animação de como funciona','Simulador de economia por mês'],status:'Ao vivo'},
  {id:'pontos',tab:'Pontos',kind:'live',screen:'pontos',n:'04',persona:'Cláudia Ramos',title:'Pagar em dia vale pontos.',
@@ -529,7 +529,8 @@ root.querySelectorAll('.wf').forEach(wf=>{const track=wf.querySelector('.wf-trac
 function fit(){
  const narrow=innerWidth<=820;const sh=stage.clientHeight,sw=stage.clientWidth;
  const cs=getComputedStyle(els[1]);const pad=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);
- let s=narrow?Math.min(1,(sw-32)/417):Math.min(1,(sh-pad)/876,(sw*0.40)/417);
+ /* +8% sobre o encaixe original, sem passar da altura do palco (escala uniforme, não distorce). */
+ let s=narrow?Math.min(1,(sw-32)/417):Math.min(1.08,Math.min(1,(sh-pad)/876,(sw*0.40)/417)*1.08,(sh-12)/876,(sw*0.44)/417);
  s=Math.max(.42,Math.round(s*1000)/1000);
  root.querySelectorAll('.device-wrap').forEach(d=>d.style.setProperty('--s',s));
  placeThumb();scheduleStatus();
