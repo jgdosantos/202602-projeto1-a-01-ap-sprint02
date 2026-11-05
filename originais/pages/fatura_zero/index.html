@@ -1,22 +1,28 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#08068d">
-    <title>Você escaneou a Fatura 0 | Bulbe</title>
+    <title>Sua fatura Bulbe chegou | Bulbe</title>
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="mobile.css">
-    <script src="fatura0.js" defer></script>
+    <script>
+        // Guarda erros de carregamento/execução para mostrar no aviso, caso o fatura0.js não rode.
+        window.__erros = [];
+        window.addEventListener('error', function (e) {
+            var alvo = e.target;
+            window.__erros.push(alvo && alvo.src ? 'não foi possível carregar ' + alvo.src : (e.message || 'erro') + (e.filename ? ' (' + e.filename.split('/').pop() + ':' + e.lineno + ')' : ''));
+        }, true);
+    </script>
+    <script src="fatura0.js?v=4" defer></script>
 </head>
 <body>
     <a class="pular-conteudo" href="#conteudo-fatura">Ir ao conteúdo</a>
 
     <div class="aparelho">
         <main class="app acesso-email" id="conteudo-fatura">
-            <noscript><p class="aviso-sem-js">Ative o JavaScript para ver a animação e o simulador. A navegação e os cards funcionam sem ele.</p></noscript>
+            <p class="aviso-sem-js" role="alert">O arquivo fatura0.js não foi carregado, por isso a animação e o simulador não funcionam. Confirme que ele está na mesma pasta do index.html e atualize a página (Ctrl+F5). A navegação e os cards continuam funcionando. <strong data-detalhe></strong></p>
             <!-- Barra de status visual para a prévia do aplicativo. -->
             <div class="barra-status" aria-label="Barra de status ilustrativa">
                 <span class="horario-status">9:41</span>
@@ -28,7 +34,7 @@
             </div>
 
             <!-- História 3.1 · Aviso de que a Fatura 0 foi escaneada -->
-            <section class="tela-fatura tela-fatura--aviso" id="escaneou" data-tela="escaneou" data-titulo="Você escaneou a Fatura 0">
+            <section class="tela-fatura tela-fatura--aviso" id="escaneou" data-tela="escaneou" data-titulo="Sua fatura Bulbe chegou">
                 <div class="fundo-aviso" aria-hidden="true">
                     <img class="padrao padrao--superior" src="assets/img/padrao-superior.svg" alt="">
                     <img class="padrao padrao--inferior" src="assets/img/padrao-inferior.svg" alt="">
@@ -44,7 +50,7 @@
                         <img src="assets/img/icone-fechar.svg" alt="">
                     </a>
                     <span class="selo-fatura">FATURA 0</span>
-                    <h1 id="titulo-escaneou" tabindex="-1">Você escaneou a Fatura 0!</h1>
+                    <h1 id="titulo-escaneou" tabindex="-1">Sua fatura Bulbe chegou!</h1>
                     <p>Parabéns! Você deu o primeiro passo na sua nova conta de luz Bulbe.</p>
                     <img class="janela__sol" src="assets/img/sol.svg" alt="">
                 </div>
@@ -99,9 +105,9 @@
                         <a class="link-pular" href="#entenda">Pular <span aria-hidden="true">›</span></a>
                     </div>
 
-                    <div class="player" data-player data-duracao="60">
+                    <div class="player" data-player data-duracao="30">
                         <div class="player__palco">
-                            <span class="player__etiqueta">Animação rápida (~1 min)</span>
+                            <span class="player__etiqueta">Animação rápida (~30 s)</span>
                             <div class="player__cena">
                                 <span class="player__icone" aria-hidden="true"><img data-player-icone src="assets/img/icone-conta-bulbe.svg" alt=""></span>
                                 <p class="player__legenda" data-player-legenda aria-live="polite">Você recebe a sua Fatura 0.</p>
@@ -112,14 +118,15 @@
                             <button class="player__botao" type="button" data-player-botao aria-label="Pausar animação">
                                 <svg class="icone-pausar" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
                                 <svg class="icone-tocar" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                <span class="player__botao-texto" data-player-botao-texto>Pausar</span>
                             </button>
                         </div>
 
                         <label class="apenas-leitor" for="progresso-animacao">Progresso da animação</label>
-                        <input class="player__progresso" id="progresso-animacao" data-player-progresso type="range" min="0" max="60" step="1" value="0">
+                        <input class="player__progresso" id="progresso-animacao" data-player-progresso type="range" min="0" max="30" step="0.1" value="0">
                         <div class="player__tempos" aria-hidden="true">
                             <span data-player-atual>0:00</span>
-                            <span data-player-total>1:00</span>
+                            <span data-player-total>0:30</span>
                         </div>
                     </div>
 
@@ -200,6 +207,7 @@
                                     <div class="card-info__miolo">
                                         <div class="card-info__imagem" aria-hidden="true"><img src="assets/img/icone-conta-cemig.svg" alt=""></div>
                                         <p>A Cemig é a distribuidora: ela leva a energia até a sua casa e cuida da rede elétrica.</p>
+                <p class="card-info__destaque"><strong>A conta da Cemig NÃO DEVERÁ SER PAGA</strong>, já que a conta Bulbe inclui o percentual e irá redirecionar esse valor para a Cemig.</p>
                                     </div>
                                 </details>
                             </li>
@@ -241,5 +249,14 @@
             </section>
         </main>
     </div>
+    <script>
+        window.addEventListener('load', function () {
+            var aviso = document.querySelector('.aviso-sem-js');
+            if (aviso && !document.documentElement.classList.contains('js')) {
+                document.documentElement.classList.add('sem-js');
+                aviso.querySelector('[data-detalhe]').textContent = 'Detalhe: ' + (window.__erros.length ? window.__erros.join('; ') : 'nenhum erro registrado (o script pode estar bloqueado pelo navegador ou pela visualização).');
+            }
+        });
+    </script>
 </body>
 </html>

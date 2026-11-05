@@ -124,14 +124,10 @@ def find_file(folder, name):
 
 
 # Correções de referência quebrada no código original, aplicadas só na apresentação.
-# O index.html da Fatura 0 aponta para fatura0.js, mas o arquivo no repositório se chama fatura.js.
-SCRIPT_FIXES = {('fatura_zero', 'fatura0.js'): 'fatura.js'}
+# Nomes de script trocados no código original, corrigidos só na apresentação: {(página, src): arquivo}.
+SCRIPT_FIXES = {}
 # Trechos que travam o script original na inicialização. Cada correção só é aplicada se o trecho existir.
-# Fatura 0: o botão do player não tem o elemento [data-player-botao-texto], então elBotaoTexto é null
-# e atualizarBotao() lança erro antes de ligar a navegação. O botão já troca de ícone pela classe .pausado.
-SCRIPT_PATCHES = {'fatura_zero': [
-    ('elBotaoTexto.textContent = texto;', 'if (elBotaoTexto) elBotaoTexto.textContent = texto;',
-     'o botão do player não tem [data-player-botao-texto]; o texto só é escrito se o elemento existir')]}
+SCRIPT_PATCHES = {}
 adaptations = []
 
 pages = {}
@@ -153,7 +149,7 @@ for name, rel, title in [
     for sm in re.finditer(r'<script([^>]*)>(.*?)</script>', html, re.S | re.I):
         src = re.search(r'src="([^"]+)"', sm.group(1))
         if src:
-            file_name = src.group(1)
+            file_name = src.group(1).split('?')[0].split('#')[0]  # ignora ?v=4 e similares
             if not (path.parent / file_name).exists() and (name, file_name) in SCRIPT_FIXES:
                 adaptations.append('%s: <script src="%s"> não existe; usado %s.' % (name, file_name, SCRIPT_FIXES[(name, file_name)]))
                 file_name = SCRIPT_FIXES[(name, file_name)]

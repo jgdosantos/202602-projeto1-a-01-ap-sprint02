@@ -74,7 +74,7 @@ O modelo `pages/padrao/` saiu do repositório do grupo no commit 92e2e7a; os mes
 - `src/build_original_presentation.py`: script que reúne telas, fontes, imagens, wireframes e dados na apresentação.
 - `src/bulbe-apresentacao-original.html`: versão incorporável gerada pelo script.
 - `originais/`: cópia dos códigos, dados, documentos e recursos do projeto usados como referência.
-  - `originais/pages/` espelha `pages/` do repositório do grupo no commit 92e2e7a (origin/main). Exceções: `onboarding/` é a cópia de `pages/onboarding/telas_finais_onboarding/` (HU04) e `fatura_zero/` é a cópia de `pages/fatura 0/` sem `teste.html` e `teste.css`.
+  - `originais/pages/` espelha `pages/` do repositório do grupo no commit b65a17e (origin/main). Exceções: `onboarding/` é a cópia de `pages/onboarding/telas_finais_onboarding/` (HU04) e `fatura_zero/` é a cópia de `pages/fatura 0/` sem `teste.html` e `teste.css`.
   - `originais/docs`, `originais/data` e `originais/README.md` também vêm desse commit.
 
 ## Como as telas são incorporadas
@@ -92,8 +92,6 @@ Durante a apresentação, cada tela recebe `document`, `window`, `location`, `se
 
 Ajustes feitos só na apresentação, sem mudar os arquivos em `originais/` (o build lista cada um em `adaptations`):
 
-- Fatura Zero: o `index.html` chama `fatura0.js`, mas o arquivo se chama `fatura.js`. O build usa `fatura.js`.
-- Fatura Zero: o botão do player não tem o elemento `[data-player-botao-texto]` que o script espera, e o script parava com erro antes de ligar a navegação. Na apresentação, o texto só é escrito se o elemento existir.
 - Fatura Zero e Plano Família: imagens que o script monta em tempo de execução (`assets/img/...`) são trocadas pelas versões incorporadas. O Plano Família pede `editar.png`, mas o arquivo é `Editar.png` (funciona no macOS, quebra em servidores que diferenciam maiúsculas).
 - Pontos: os diálogos abrem com `show()` em vez de `showModal()`, para ficarem dentro do iPhone, com fundo escurecido próprio.
 

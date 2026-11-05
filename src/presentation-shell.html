@@ -256,8 +256,6 @@
 #bulbe-presentation .next .label{margin:0;font-size:12px}
 #bulbe-presentation .next li{display:flex;align-items:center;gap:8px}
 #bulbe-presentation .next li:not(.label)::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
-#bulbe-presentation .goal{display:inline-flex;align-items:baseline;gap:8px;padding:8px 16px;border-radius:999px;background:var(--surface);box-shadow:var(--card-shadow);font-size:clamp(14px,min(1.2vw,2.2vh),18px);font-weight:600;color:var(--text);white-space:nowrap}
-#bulbe-presentation .goal b{color:var(--accent)}
 
 /* Rodapé com progresso */
 #bulbe-presentation .deck-foot{position:relative;z-index:5;display:flex;align-items:center;justify-content:center;gap:14px;height:52px;padding:0 20px}
@@ -326,7 +324,7 @@
 #bulbe-presentation .concl-foot{margin-top:clamp(12px,3vh,48px);padding-top:clamp(10px,2vh,24px)}
 #bulbe-presentation .next-line{margin:0;font-size:var(--fs-rotulo);color:var(--text)}
 #bulbe-presentation .next-line b{color:var(--muted);font-weight:600}
-#bulbe-presentation .goal{font-size:var(--fs-destaque);padding:10px 22px}
+
 /* Notebook baixo / projetor */
 @media (max-height:640px){
   #bulbe-presentation .meta{margin-top:12px}
@@ -453,8 +451,7 @@ function render(s,i){
    <h2 class="headline concl-title">Quem tem dúvida adia o pagamento: por isso, cada fluxo responde a uma dúvida antes que ela vire inadimplência.</h2>
    <p class="journey-ends"><span>Adesão</span><span>1ª fatura paga</span></p>
    <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="solve">${esc(SOLVES[f.id])}</span></button></li>`).join('')}</ol>
-   <div class="concl-foot"><p class="next-line"><b>Próximos passos:</b> validação com a Bulbe e medição da 1ª fatura.</p>
-   <p class="goal">Meta: reduzir os <b>32,4%</b></p></div></div>`;
+   <div class="concl-foot"><p class="next-line"><b>Próximos passos:</b> validação com a Bulbe e medição da 1ª fatura.</p></div></div>`;
  }
  return el;
 }

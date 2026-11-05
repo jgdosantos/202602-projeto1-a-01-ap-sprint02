@@ -984,7 +984,7 @@ h3 {
     line-height: 20px;
 }
 
-html:not(.js) .aviso-sem-js {
+html.sem-js .aviso-sem-js {
     display: block;
 }
 

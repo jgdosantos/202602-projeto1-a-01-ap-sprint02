@@ -27,7 +27,8 @@ function mostrarTela() {
     atual.querySelectorAll('.conteudo-acesso').forEach((area) => {
         area.scrollTop = 0;
     });
-    atual.querySelector('h1')?.focus({ preventScroll: true });
+    const titulo = atual.querySelector('h1');
+    if (titulo) titulo.focus({ preventScroll: true });
     rotaAnterior = rota;
 }
 
@@ -52,15 +53,15 @@ let segundos = 0;
 let cronometro = null;
 let cenaAtual = -1;
 
-const elProgresso = player?.querySelector('[data-player-progresso]');
-const elAtual = player?.querySelector('[data-player-atual]');
-const elTotal = player?.querySelector('[data-player-total]');
-const elBotao = player?.querySelector('[data-player-botao]');
-const elBotaoTexto = player?.querySelector('[data-player-botao-texto]');
-const elIcone = player?.querySelector('[data-player-icone]');
-const elLegenda = player?.querySelector('[data-player-legenda]');
-const elPontos = player?.querySelectorAll('.player__pontos li');
-const elCena = player?.querySelector('.player__cena');
+const elProgresso = (player ? player.querySelector('[data-player-progresso]') : null);
+const elAtual = (player ? player.querySelector('[data-player-atual]') : null);
+const elTotal = (player ? player.querySelector('[data-player-total]') : null);
+const elBotao = (player ? player.querySelector('[data-player-botao]') : null);
+const elBotaoTexto = (player ? player.querySelector('[data-player-botao-texto]') : null);
+const elIcone = (player ? player.querySelector('[data-player-icone]') : null);
+const elLegenda = (player ? player.querySelector('[data-player-legenda]') : null);
+const elPontos = (player ? player.querySelectorAll('.player__pontos li') : null);
+const elCena = (player ? player.querySelector('.player__cena') : null);
 const botaoFinalizar = document.querySelector('[data-player-finalizar]');
 const avisoFinalizar = document.querySelector('[data-player-aviso]');
 
@@ -198,9 +199,11 @@ document.querySelectorAll('[data-acordeao] details').forEach((card) => {
 const botaoIndicar = document.querySelector('[data-indicar]');
 const avisoIndicar = document.querySelector('[data-indicar-aviso]');
 
-botaoIndicar?.addEventListener('click', () => {
-    avisoIndicar.hidden = false;
-});
+if (botaoIndicar) {
+    botaoIndicar.addEventListener('click', () => {
+        avisoIndicar.hidden = false;
+    });
+}
 
 window.addEventListener('hashchange', mostrarTela);
 mostrarTela();
