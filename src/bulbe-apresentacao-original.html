@@ -484,24 +484,32 @@ const SOLVES={
 /* Contexto: Bulbe & Ibmec, setembro/2026 (Abertura, "A companhia em números") */
 const NUMBERS=[
  ['60 mil','clientes ativos'],
- ['214 mil','consumidores: 1 em cada 100 famílias mineiras'],
- ['66,6 mil','faturas emitidas por mês'],
- ['713','cidades em Minas Gerais'],
- ['R$ 38 mi','em economia gerada'],
+ ['214 mil','consumidores'],
+ ['66,6 mil','faturas por mês'],
+ ['713','cidades em MG'],
+ ['R$ 38 mi','de economia gerada'],
  ['17','usinas conectadas']];
 /* Jornada: fases de docs/jornada.md com a evidência da Bulbe de cada uma */
 const DOUBTS=[
- {phase:'Adesão',q:'Meu cadastro deu certo?',ev:'<b>Até 20 dias</b> sem comunicação no onboarding'},
- {phase:'Espera pela conexão',q:'Por que ainda pago a Cemig?',ev:'<b>~20%</b> das mensagens de WhatsApp falham'},
- {phase:'Chegada da 1ª fatura',q:'Essa cobrança é verdadeira?',ev:'<b>Fatura antiga</b> sem clareza de custos e economia'},
- {phase:'Pagamento',q:'Posso deixar para depois?',ev:'<b>32,4%</b> não pagam a 1ª fatura'}];
-/* Conclusão: de onde vem cada fluxo e o que a Bulbe pode medir nele */
+ {phase:'Adesão',q:'Meu cadastro deu certo?',ev:'<b>Até 20 dias</b> sem notícia'},
+ {phase:'Espera',q:'Por que ainda pago a Cemig?',ev:'<b>~20%</b> das mensagens falham'},
+ {phase:'1ª fatura',q:'Essa cobrança é verdadeira?',ev:'<b>Fatura</b> difícil de entender'},
+ {phase:'Pagamento',q:'Posso deixar para depois?',ev:'<b>32,4%</b> não pagam'}];
+/* Conclusão: onde o cliente trava e o que a Bulbe pode medir em cada fluxo */
 const MAP={
- cadastro:{trava:'Mensagem que não chega',faz:'Cliente escolhe e confirma o canal de aviso',mede:'Contatos confirmados por canal'},
- onboarding:{trava:'Silêncio e susto com as 2 contas',faz:'Avisa das 2 contas e mostra o ciclo',mede:'Clientes que confirmaram “Entendi”'},
- 'fatura-zero':{trava:'Fatura difícil de entender',faz:'Fatura de R$ 0,00 explica antes da cobrança',mede:'Quem viu a explicação até o fim'},
- pontos:{trava:'Pagamento adiado',faz:'Conta paga em dia vira pontos e desconto',mede:'Contas pagas até o vencimento'},
- familia:{trava:'Conta que a família não conhece',faz:'Pessoas de confiança acompanham a fatura',mede:'Convites aceitos'}};
+ cadastro:{trava:'Aviso não chega',mede:'Contatos confirmados'},
+ onboarding:{trava:'Susto com 2 contas',mede:'“Entendi” marcado'},
+ 'fatura-zero':{trava:'Fatura confusa',mede:'Explicação vista'},
+ pontos:{trava:'Pagamento adiado',mede:'Contas em dia'},
+ familia:{trava:'Família não sabe',mede:'Convites aceitos'}};
+/* Campos já preenchidos para a demonstração (só na apresentação; os arquivos do grupo não mudam) */
+const PREFILL={
+ cadastro:{'#email':'teste@email.com','#nome':'Helena Martins','#cpf':'123.456.789-09','#email-cadastro':'teste@email.com','#telefone':'(31) 98765-4321','#senha':'Bulbe@2026','#confirmar-senha':'Bulbe@2026'},
+ familia:{'#nome-completo':'Maria Souza','#contato':'(31) 98888-7777'}};
+function prefill(kind,shadow){
+ const fields=PREFILL[kind];if(!fields)return;
+ setTimeout(()=>{for(const[sel,value] of Object.entries(fields)){const el=shadow.querySelector(sel);if(!el||el.value)continue;el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));}},0);
+}
 
 function kicker(s){return `<p class="kicker"><span class="num">${s.n}</span><span class="sep"></span><span>Persona: ${esc(s.persona)}</span></p>`;}
 const SB_ICONS='<svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 2.6c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .8C5.2.8 2.7 1.9.8 3.7L2 5c1.6-1.5 3.7-2.4 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.6 6.6 0 0 0 8 4.4c-1.8 0-3.4.7-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3zm0 3.5c-.5 0-.9.2-1.2.5L8 11.6l1.2-1.4c-.3-.3-.7-.5-1.2-.5z"/></svg><svg viewBox="0 0 27 12" aria-hidden="true"><rect x=".5" y=".5" width="23" height="11" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2" y="2" width="17" height="8" rx="2"/><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill-opacity=".45"/></svg>';
@@ -531,34 +539,34 @@ function render(s,i){
    ${device(`<div class="screen-loading">Carregando…</div>${s.wireframes?gallery(s.wireframes,'Wireframe de referência').replace('class="wf"','class="wf" hidden'):''}`)}`;
  }else if(s.kind==='numbers'){
   el.innerHTML=`<div class="copy"><p class="kicker">Contexto · Bulbe Energia</p>
-   <h2 class="headline">A Bulbe já chega a 1 em cada 100 famílias mineiras.</h2>
-   <p class="lead">Usinas próprias geram a energia. O cliente assina, economiza na conta de luz e continua pagando à Cemig a parte da rede.</p>
-   <p class="bignum-src">Fonte: apresentação Bulbe &amp; Ibmec, setembro/2026</p></div>
+   <h2 class="headline">A Bulbe chega a 1 em cada 100 famílias mineiras.</h2>
+   <p class="lead">Energia de usinas próprias, com desconto na conta de luz.</p>
+   <p class="bignum-src">Fonte: Bulbe &amp; Ibmec, set/2026</p></div>
    <ul class="stats rise">${NUMBERS.map(([v,l],k)=>`<li style="--i:${k}"><b>${esc(v)}</b><span>${esc(l)}</span></li>`).join('')}</ul>`;
  }else if(s.kind==='problem'){
   el.innerHTML=`<div class="copy"><p class="kicker">O problema</p>
    <p class="bignum" aria-label="32,4 por cento">32,4%</p>
    <p class="bignum-line">de inadimplência na primeira fatura.</p>
-   <ul class="contrast"><li><b>1,6%</b>de inadimplência na carteira com mais de 4 meses</li><li><b>2,1%</b>de churn nessa mesma carteira</li></ul>
-   <p class="verdict">O problema está na entrada, não na carteira.</p>
-   <p class="bignum-src">Set/2025 a jul/2026 · apresentação Bulbe &amp; Ibmec, setembro/2026 · carteira PF</p></div>`;
+   <ul class="contrast"><li><b>1,6%</b>inadimplência após 4 meses</li><li><b>2,1%</b>churn após 4 meses</li></ul>
+   <p class="verdict">O problema está na entrada.</p>
+   <p class="bignum-src">Set/2025 a jul/2026 · Bulbe &amp; Ibmec, set/2026</p></div>`;
  }else if(s.kind==='doubts'){
   el.innerHTML=`<div class="copy"><p class="kicker">A jornada do cliente novo</p>
-   <h2 class="headline concl-title">Entre a adesão e a 1ª fatura, o cliente fica com dúvidas e sem resposta.</h2>
+   <h2 class="headline concl-title">Até a 1ª fatura, sobram dúvidas.</h2>
    <ol class="journey is-doubt" style="--n:${DOUBTS.length}">${DOUBTS.map((d,k)=>`<li><div class="j-item"><span class="j-dot">${k+1}</span><span class="j-phase">${esc(d.phase)}</span><strong class="j-q">“${esc(d.q)}”</strong><span class="j-ev">${d.ev}</span></div></li>`).join('')}</ol>
-   <p class="bignum-src">Evidências: Bulbe &amp; Ibmec, setembro/2026 · dúvidas: personas do squad (docs/jornada.md)</p></div>`;
+   <p class="bignum-src">Fonte: Bulbe &amp; Ibmec, set/2026</p></div>`;
  }else if(s.kind==='map'){
   el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
    <h2 class="headline">Da causa ao indicador.</h2>
-   <table class="map"><thead><tr><th scope="col">Fluxo</th><th scope="col">Onde o cliente trava</th><th scope="col">O que o app faz</th><th scope="col">O que a Bulbe pode medir</th></tr></thead>
-   <tbody>${flows.map(f=>{const m=MAP[f.id];return `<tr><th scope="row"><button type="button" class="map-flow" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span>${esc(f.tab)}</button></th><td>${esc(m.trava)}</td><td>${esc(m.faz)}</td><td class="mede">${esc(m.mede)}</td></tr>`;}).join('')}</tbody></table>
-   <p class="converge"><span class="converge-mark" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Os cinco sinais levam ao mesmo indicador: <strong>1ª fatura paga até o vencimento</strong>. Ponto de partida: 32,4% de inadimplência.</span></p></div>`;
+   <table class="map"><thead><tr><th scope="col">Fluxo</th><th scope="col">Trava</th><th scope="col">Bulbe mede</th></tr></thead>
+   <tbody>${flows.map(f=>{const m=MAP[f.id];return `<tr><th scope="row"><button type="button" class="map-flow" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span>${esc(f.tab)}</button></th><td>${esc(m.trava)}</td><td class="mede">${esc(m.mede)}</td></tr>`;}).join('')}</tbody></table>
+   <p class="converge"><span class="converge-mark" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Um indicador: <strong>1ª fatura paga em dia</strong>.</span></p></div>`;
  }else if(s.kind==='close'){
   el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
-   <h2 class="headline concl-title">Quem tem dúvida adia o pagamento: por isso, cada fluxo responde a uma dúvida antes que ela vire inadimplência.</h2>
+   <h2 class="headline concl-title">Quem tem dúvida adia o pagamento. Cada fluxo responde uma.</h2>
    <p class="journey-ends"><span>Adesão</span><span>1ª fatura paga</span></p>
-   <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="j-doubt">“${esc(SOLVES[f.id].q)}”</span><span class="solve">${esc(SOLVES[f.id].a)}</span></button></li>`).join('')}</ol>
-   <p class="thanks">Obrigado. <span>Luiza, João Gabriel, André, Ana Carolina e Sérgio · Squad 01</span></p></div>`;
+   <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="j-doubt">“${esc(SOLVES[f.id].q)}”</span></button></li>`).join('')}</ol>
+   <p class="thanks">Obrigado.</p></div>`;
  }
  return el;
 }
@@ -590,6 +598,7 @@ function mount(kind,screen){
  shadow.addEventListener('submit',e=>{if((e.target.getAttribute('method')||'').toLowerCase()!=='dialog')e.preventDefault();});
  const doc=new Proxy(shadow,{get(target,key){if(key==='body')return body;if(key==='documentElement')return body;if(key==='createElement')return document.createElement.bind(document);const v=Reflect.get(target,key,target);return typeof v==='function'?v.bind(target):v;},set(target,key,value){target[key]=value;return true;}});
  for(const source of entry.scripts){try{new Function('document','window','location','sessionStorage','navigator','buscarPontos','history','__img',resolve(source))(doc,localWindow,location,storage,navigator,async()=>structuredClone(pack.points),history,n=>resolve(entry.imgs?.[n]||'')||('assets/img/'+n));}catch(e){console.error(entry.title,e);toast('Uma interação da tela original não pôde iniciar.');}}
+ prefill(kind,shadow);
  hosts[kind]=host;requestAnimationFrame(scheduleStatus);return host;
 }
 /* Hora, sinal, bateria e indicador de início mudam de cor conforme o fundo da tela original (claro ou escuro). */

@@ -15,8 +15,8 @@ A apresentação tem onze slides, agrupados em oito abas na barra superior:
 7. Fatura Zero: Mariana Dulce
 8. Pontos: Cláudia Ramos
 9. Plano Família: Carlos Vicente
-10. Conclusão · Da causa ao indicador: tabela com onde o cliente trava, o que cada fluxo faz e o que a Bulbe pode medir; os cinco sinais levam à 1ª fatura paga até o vencimento
-11. Conclusão: a frase que resume o racional e a jornada dos cinco fluxos, com a dúvida que cada um responde
+10. Conclusão · Da causa ao indicador: onde o cliente trava e o que a Bulbe pode medir em cada fluxo; tudo leva à 1ª fatura paga em dia
+11. Conclusão: a frase que resume o racional e a dúvida que cada fluxo responde
 
 Os números de contexto vêm da apresentação Bulbe & Ibmec de setembro/2026 (`wireframes-bulbe/Apresentac_a_o_IBMEC_-_Setembro_26.pdf`) e do enunciado da Etapa 2. As dúvidas são das personas do squad (`originais/docs/historias*.md` e `jornada.md`).
 
@@ -31,6 +31,8 @@ A Fatura Zero mostra as telas da pasta `pages/fatura 0/` do projeto: aviso de qu
 O Plano Família mostra as telas de `pages/PlanoFamilia/`: apresentação do plano, sua família, quem convidar (até 4 pessoas, por WhatsApp, SMS, e-mail ou carta), conferência e edição dos convites, convites enviados e a tela de quem recebe o convite.
 
 Botões das telas que levam para outra página do app (por exemplo, "Ir para minha conta" na Fatura Zero ou "Início" em Pontos) abrem a seção correspondente da apresentação.
+
+Para a demonstração, os campos de texto já vêm preenchidos com dados fictícios: no Cadastro, e-mail de acesso `teste@email.com`, Helena Martins, CPF 123.456.789-09, (31) 98765-4321 e senha Bulbe@2026; no Plano Família, Maria Souza e (31) 98888-7777. Isso é feito só na apresentação (`PREFILL` em `src/presentation-shell.html`); os arquivos em `originais/` não mudam. Caixas de aceite continuam para marcar na hora.
 
 Os resgates, convites e pagamentos são demonstrativos. Nenhum dado é enviado à Bulbe.
 
