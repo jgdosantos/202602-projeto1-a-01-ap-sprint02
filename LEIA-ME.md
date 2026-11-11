@@ -12,10 +12,10 @@ A apresentação tem onze slides, agrupados em oito abas na barra superior:
 4. Contexto · Jornada: as quatro fases (adesão, espera, 1ª fatura, pagamento), a dúvida do cliente em cada uma e a evidência da Bulbe
 5. Cadastro: Helena Martins
 6. Onboarding: Marina (HU04)
-7. Fatura Zero: Mariana Dulce
-8. Pontos: Cláudia Ramos
-9. Plano Família: Carlos Vicente
-10. Conclusão · Da causa ao indicador: onde o cliente trava e o que a Bulbe pode medir em cada fluxo; tudo leva à 1ª fatura paga em dia
+7. Pontos: Cláudia Ramos
+8. Plano Família: Carlos Vicente
+9. Fatura Zero: Mariana Dulce, o clímax da apresentação, com o selo "Principal aposta do squad"
+10. Conclusão · Da trava à solução: onde o cliente trava e a solução do squad em cada fluxo, com a Fatura Zero em destaque; tudo leva à 1ª fatura paga em dia
 11. Conclusão: a frase que resume o racional e a dúvida que cada fluxo responde
 
 Os números de contexto vêm da apresentação Bulbe & Ibmec de setembro/2026 (`wireframes-bulbe/Apresentac_a_o_IBMEC_-_Setembro_26.pdf`) e do enunciado da Etapa 2. As dúvidas são das personas do squad (`originais/docs/historias*.md` e `jornada.md`).

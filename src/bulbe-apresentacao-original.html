@@ -362,7 +362,12 @@
 #bulbe-presentation .map td.mede{font-weight:600;color:var(--green-text)}
 #bulbe-presentation .map-flow{display:flex;align-items:center;gap:12px;padding:0;border:0;background:transparent;font-size:var(--fs-destaque);font-weight:600;letter-spacing:-.02em;color:var(--text);white-space:nowrap;text-align:left}
 #bulbe-presentation .map-flow .j-dot{width:clamp(32px,5vh,44px);height:clamp(32px,5vh,44px);margin:0;flex:none;font-size:var(--fs-interface)}
-#bulbe-presentation .map tbody tr:last-child .j-dot{box-shadow:0 0 0 2px var(--accent),var(--card-shadow)}
+#bulbe-presentation .map tr.is-featured>*{background:rgb(38 208 124 / 10%)}
+#bulbe-presentation .map tr.is-featured .j-dot,#bulbe-presentation .journey li.is-featured .j-dot{background:var(--bulbe-verde);color:var(--bulbe-azul);box-shadow:0 0 0 2px var(--bulbe-verde),0 0 0 8px rgb(38 208 124 / 18%)}
+#bulbe-presentation .map tr.is-featured .map-flow{color:var(--headline)}
+#bulbe-presentation .journey li.is-featured strong{color:var(--headline)}
+#bulbe-presentation .star-chip{display:inline-flex;align-items:center;margin-left:12px;padding:2px 12px;border-radius:999px;background:var(--bulbe-verde);color:var(--bulbe-azul);font-size:var(--fs-interface);font-weight:600;white-space:nowrap;vertical-align:middle}
+#bulbe-presentation .chip.star-chip{margin-left:0;box-shadow:none;min-height:40px;padding:6px 16px}
 #bulbe-presentation .map-flow:hover .j-dot{transform:scale(1.08)}
 #bulbe-presentation .converge{display:flex;align-items:center;gap:16px;margin:clamp(12px,2.4vh,28px) 0 0;padding:clamp(12px,2vh,20px) clamp(16px,1.6vw,26px);border-radius:var(--bulbe-raio-painel);
   background:var(--bulbe-azul);color:#fff;font-size:var(--fs-rotulo);line-height:1.35;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
@@ -459,16 +464,16 @@ const slides=[
  {id:'onboarding',tab:'Onboarding',kind:'live',screen:'onboarding',n:'02',persona:'Marina',title:'Duas contas, sem surpresa.',
   lead:'Antes da primeira fatura, o app avisa que virão duas contas.',
   points:['Confirmação obrigatória “Entendi”','Ciclo 1 de 2 no app'],status:'Ao vivo'},
- {id:'fatura-zero',tab:'Fatura Zero',kind:'live',screen:'fatura_zero',n:'03',persona:'Mariana Dulce',title:'Fatura Zero.',
-  lead:'Uma fatura de R$ 0,00 explica a conta antes da primeira cobrança.',
-  points:['Animação de como funciona','Simulador de economia por mês'],status:'Ao vivo'},
- {id:'pontos',tab:'Pontos',kind:'live',screen:'pontos',n:'04',persona:'Cláudia Ramos',title:'Pagar em dia vale pontos.',
+ {id:'pontos',tab:'Pontos',kind:'live',screen:'pontos',n:'03',persona:'Cláudia Ramos',title:'Pagar em dia vale pontos.',
   lead:'Cada conta paga em dia vira pontos e desconto na fatura.',
   points:['Saldo, nível e extrato','Resgate vira cupom de desconto'],status:'Ao vivo'},
- {id:'familia',tab:'Plano Família',kind:'live',screen:'familia',n:'05',persona:'Carlos Vicente',title:'A família acompanha junto.',
+ {id:'familia',tab:'Plano Família',kind:'live',screen:'familia',n:'04',persona:'Carlos Vicente',title:'A família acompanha junto.',
   lead:'O cliente convida pessoas de confiança para acompanhar a fatura.',
   points:['Até 4 pessoas por plano','Só entra quem aceitar'],status:'Ao vivo'},
- {id:'causa-indicador',tab:'Da causa ao indicador',chap:'Conclusão',kind:'map'},
+ {id:'fatura-zero',tab:'Fatura Zero',kind:'live',screen:'fatura_zero',n:'05',featured:true,persona:'Mariana Dulce',title:'Fatura Zero.',
+  lead:'Uma fatura de R$ 0,00 explica a conta antes da primeira cobrança.',
+  points:['Animação de como funciona','Simulador de economia por mês'],status:'Ao vivo'},
+ {id:'causa-indicador',tab:'Da trava à solução',chap:'Conclusão',kind:'map'},
  {id:'conclusao',tab:'Conclusão',kind:'close'}
 ];
 slides.forEach(s=>{s.chap??=s.tab;});
@@ -495,13 +500,13 @@ const DOUBTS=[
  {phase:'Espera',q:'Por que ainda pago a Cemig?',ev:'<b>~20%</b> das mensagens falham'},
  {phase:'1ª fatura',q:'Essa cobrança é verdadeira?',ev:'<b>Fatura</b> difícil de entender'},
  {phase:'Pagamento',q:'Posso deixar para depois?',ev:'<b>32,4%</b> não pagam'}];
-/* Conclusão: onde o cliente trava e o que a Bulbe pode medir em cada fluxo */
+/* Conclusão: onde o cliente trava e a solução do squad em cada fluxo (Fatura Zero por último: clímax) */
 const MAP={
- cadastro:{trava:'Aviso não chega',mede:'Contatos confirmados'},
- onboarding:{trava:'Susto com 2 contas',mede:'“Entendi” marcado'},
- 'fatura-zero':{trava:'Fatura confusa',mede:'Explicação vista'},
- pontos:{trava:'Pagamento adiado',mede:'Contas em dia'},
- familia:{trava:'Família não sabe',mede:'Convites aceitos'}};
+ cadastro:{trava:'Aviso não chega',sol:'Cliente escolhe o canal'},
+ onboarding:{trava:'Susto com 2 contas',sol:'Aviso das 2 contas antes'},
+ pontos:{trava:'Pagamento adiado',sol:'Pagar em dia vale pontos'},
+ familia:{trava:'Família não sabe',sol:'Família acompanha a conta'},
+ 'fatura-zero':{trava:'Fatura confusa',sol:'Uma fatura de R$ 0,00 que explica a conta'}};
 /* Campos já preenchidos para a demonstração (só na apresentação; os arquivos do grupo não mudam) */
 const PREFILL={
  cadastro:{'#email':'teste@email.com','#nome':'Helena Martins','#cpf':'123.456.789-09','#email-cadastro':'teste@email.com','#telefone':'(31) 98765-4321','#senha':'Bulbe@2026','#confirmar-senha':'Bulbe@2026'},
@@ -535,7 +540,7 @@ function render(s,i){
   const toggle=s.wireframes?`<div class="mini-seg" role="group" aria-label="O que mostrar no aparelho"><button type="button" data-view="live" aria-pressed="true">Código</button><button type="button" data-view="wf" aria-pressed="false">Wireframes</button></div>`:'';
   el.innerHTML=`<div class="copy">${kicker(s)}<h2 class="headline">${esc(s.title)}</h2><p class="lead">${esc(s.lead)}</p>
    <ul class="points">${s.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
-   <div class="meta"><span class="chip"><span class="dot"></span>${esc(s.status)}</span>${toggle}<button type="button" class="chip chip-btn" data-restart>${ICON.restart}Reiniciar tela</button>${s.wireframes?wfNav(true):''}</div></div>
+   <div class="meta">${s.featured?'<span class="chip star-chip">★ Principal aposta do squad</span>':''}<span class="chip"><span class="dot"></span>${esc(s.status)}</span>${toggle}<button type="button" class="chip chip-btn" data-restart>${ICON.restart}Reiniciar tela</button>${s.wireframes?wfNav(true):''}</div></div>
    ${device(`<div class="screen-loading">Carregando…</div>${s.wireframes?gallery(s.wireframes,'Wireframe de referência').replace('class="wf"','class="wf" hidden'):''}`)}`;
  }else if(s.kind==='numbers'){
   el.innerHTML=`<div class="copy"><p class="kicker">Contexto · Bulbe Energia</p>
@@ -557,15 +562,15 @@ function render(s,i){
    <p class="bignum-src">Fonte: Bulbe &amp; Ibmec, set/2026</p></div>`;
  }else if(s.kind==='map'){
   el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
-   <h2 class="headline">Da causa ao indicador.</h2>
-   <table class="map"><thead><tr><th scope="col">Fluxo</th><th scope="col">Trava</th><th scope="col">Bulbe mede</th></tr></thead>
-   <tbody>${flows.map(f=>{const m=MAP[f.id];return `<tr><th scope="row"><button type="button" class="map-flow" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span>${esc(f.tab)}</button></th><td>${esc(m.trava)}</td><td class="mede">${esc(m.mede)}</td></tr>`;}).join('')}</tbody></table>
+   <h2 class="headline">Da trava à solução.</h2>
+   <table class="map"><thead><tr><th scope="col">Fluxo</th><th scope="col">Trava</th><th scope="col">Nossa solução</th></tr></thead>
+   <tbody>${flows.map(f=>{const m=MAP[f.id];return `<tr${f.featured?' class="is-featured"':''}><th scope="row"><button type="button" class="map-flow" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span>${esc(f.tab)}</button></th><td>${esc(m.trava)}</td><td class="mede">${esc(m.sol)}${f.featured?'<span class="star-chip">Principal aposta</span>':''}</td></tr>`;}).join('')}</tbody></table>
    <p class="converge"><span class="converge-mark" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Um indicador: <strong>1ª fatura paga em dia</strong>.</span></p></div>`;
  }else if(s.kind==='close'){
   el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
    <h2 class="headline concl-title">Quem tem dúvida adia o pagamento. Cada fluxo responde uma.</h2>
    <p class="journey-ends"><span>Adesão</span><span>1ª fatura paga</span></p>
-   <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="j-doubt">“${esc(SOLVES[f.id].q)}”</span></button></li>`).join('')}</ol>
+   <ol class="journey">${flows.map(f=>`<li${f.featured?' class="is-featured"':''}><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="j-doubt">“${esc(SOLVES[f.id].q)}”</span></button></li>`).join('')}</ol>
    <p class="thanks">Obrigado.</p></div>`;
  }
  return el;
