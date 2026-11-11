@@ -136,7 +136,8 @@
 
 /* Tipografia */
 #bulbe-presentation .kicker{display:flex;align-items:center;gap:10px;margin:0 0 clamp(10px,2vh,18px);font-size:13px;font-weight:600;letter-spacing:0;color:var(--kicker)}
-#bulbe-presentation .slide-cover .kicker::before,#bulbe-presentation .slide-problem .kicker::before,#bulbe-presentation .slide-close .kicker::before{content:"";flex:none;width:20px;height:11px;transform:skewX(-18deg);
+#bulbe-presentation .slide-cover .kicker::before,#bulbe-presentation .slide-problem .kicker::before,#bulbe-presentation .slide-close .kicker::before,
+#bulbe-presentation .slide-numbers .kicker::before,#bulbe-presentation .slide-doubts .kicker::before,#bulbe-presentation .slide-map .kicker::before{content:"";flex:none;width:20px;height:11px;transform:skewX(-18deg);
   background:linear-gradient(var(--bulbe-verde),var(--bulbe-verde)) 0 0/14px 3px no-repeat,linear-gradient(var(--bulbe-azul-ceu),var(--bulbe-azul-ceu)) 4px 4px/16px 3px no-repeat,linear-gradient(var(--bulbe-laranja),var(--bulbe-laranja)) 2px 8px/11px 3px no-repeat}
 #bulbe-presentation .kicker .num{color:var(--accent);font-variant-numeric:tabular-nums}
 #bulbe-presentation .kicker .sep{width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.5}
@@ -240,7 +241,7 @@
 #bulbe-presentation .slide-close .copy{max-width:none;width:100%}
 #bulbe-presentation .concl-title{max-width:24em;font-size:clamp(26px,min(3.3vw,5.8vh),56px);line-height:1.12;letter-spacing:-.03em;margin-bottom:clamp(22px,5vh,56px)}
 #bulbe-presentation .journey-ends{display:flex;justify-content:space-between;margin:0 0 10px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-#bulbe-presentation .journey{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
+#bulbe-presentation .journey{position:relative;display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
 #bulbe-presentation .journey::before{content:"";position:absolute;left:22px;right:22px;top:22px;height:2px;border-radius:1px;background:linear-gradient(90deg,var(--accent),var(--green))}
 #bulbe-presentation .journey button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;padding:0 8px 0 0;border:0;background:transparent;text-align:left}
 #bulbe-presentation .j-dot{display:grid;place-items:center;width:44px;height:44px;margin-bottom:clamp(8px,1.8vh,16px);border-radius:50%;background:var(--surface);box-shadow:0 0 0 2px var(--accent),var(--card-shadow);
@@ -321,6 +322,59 @@
 #bulbe-presentation .journey .solve{font-size:var(--fs-rotulo);line-height:1.3}
 #bulbe-presentation .journey .chip{font-size:var(--fs-interface);min-height:32px;padding:3px 12px;margin-top:8px}
 
+/* ===== Introdução ampliada e conclusão em duas partes ===== */
+/* Entrada escalonada para listas fora de .copy */
+#bulbe-presentation .rise>*{opacity:0;transform:translate3d(0,14px,0);transition:opacity .6s var(--ease),transform .7s var(--ease)}
+#bulbe-presentation .slide.is-active .rise>*{opacity:1;transform:none;transition-delay:calc(.1s + var(--i,0) * .06s)}
+/* A Bulbe em números */
+#bulbe-presentation .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.6vh,16px);margin:0;padding:0;list-style:none;width:100%}
+#bulbe-presentation .stats li{padding:clamp(12px,2.2vh,24px) clamp(16px,1.6vw,26px);border-radius:var(--bulbe-raio-painel);background:var(--surface);box-shadow:var(--card-shadow)}
+#bulbe-presentation .stats b{display:inline-block;padding-right:.06em;font-size:clamp(30px,min(3vw,5.6vh),60px);font-weight:700;letter-spacing:-.03em;line-height:1.05;white-space:nowrap;font-variant-numeric:tabular-nums;
+  background:var(--big-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+#bulbe-presentation .stats span{display:block;margin-top:clamp(4px,.8vh,8px);font-size:var(--fs-rotulo);line-height:1.3;color:var(--muted)}
+#bulbe-presentation .slide-numbers .bignum-src{margin-top:0}
+/* Problema: contraste com a carteira madura */
+#bulbe-presentation .slide-problem .bignum{font-size:clamp(80px,min(18vw,25vh),280px)}
+#bulbe-presentation .contrast{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,1.4vw,20px);margin:clamp(16px,3.4vh,40px) 0 0;padding:0;list-style:none}
+#bulbe-presentation .contrast li{display:flex;align-items:baseline;gap:12px;max-width:26em;padding:clamp(10px,1.8vh,16px) clamp(16px,1.6vw,24px);border-radius:var(--bulbe-raio-painel);
+  background:var(--surface);box-shadow:var(--card-shadow);font-size:var(--fs-rotulo);line-height:1.3;color:var(--muted);text-align:left}
+#bulbe-presentation .contrast b{flex:none;font-size:var(--fs-destaque);font-weight:700;letter-spacing:-.02em;color:var(--green-text);font-variant-numeric:tabular-nums}
+#bulbe-presentation .verdict{margin:clamp(14px,3vh,32px) 0 0;font-size:var(--fs-destaque);font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--headline)}
+#bulbe-presentation .slide-problem .bignum-src{margin-top:clamp(10px,2.2vh,24px)}
+/* Jornada: dúvidas do cliente (laranja = dor; na conclusão a mesma linha vira azul → verde) */
+#bulbe-presentation .slide-doubts,#bulbe-presentation .slide-map{grid-template-columns:minmax(0,1fr);align-content:center}
+#bulbe-presentation .slide-doubts .copy,#bulbe-presentation .slide-map .copy{width:100%}
+#bulbe-presentation .journey .j-item{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:0 8px 0 0}
+#bulbe-presentation .journey.is-doubt::before{background:linear-gradient(90deg,var(--line),var(--pending))}
+#bulbe-presentation .journey.is-doubt .j-dot,#bulbe-presentation .journey.is-doubt li:last-child .j-dot{box-shadow:0 0 0 2px var(--pending),var(--card-shadow);color:#a35f00}
+#bulbe-presentation[data-theme=dark] .journey.is-doubt .j-dot{color:var(--pending)}
+#bulbe-presentation .j-phase{font-size:var(--fs-rotulo);font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+#bulbe-presentation .j-q{font-size:var(--fs-destaque);font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--headline);text-wrap:balance}
+#bulbe-presentation .j-ev{margin-top:clamp(4px,1vh,10px);font-size:var(--fs-rotulo);line-height:1.3;color:var(--muted)}
+#bulbe-presentation .j-ev b{font-weight:600;color:var(--text)}
+#bulbe-presentation .slide-doubts .bignum-src{margin-top:clamp(18px,4vh,44px)}
+/* Conclusão 1: da causa ao indicador */
+#bulbe-presentation .slide-map .headline{margin-bottom:clamp(12px,2.4vh,28px)}
+#bulbe-presentation .map{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--bulbe-raio-painel);background:var(--surface);box-shadow:var(--card-shadow);overflow:hidden}
+#bulbe-presentation .map thead th{padding:clamp(8px,1.4vh,14px) clamp(12px,1.2vw,22px);text-align:left;font-size:clamp(12px,min(1vw,1.8vh),16px);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+#bulbe-presentation .map td,#bulbe-presentation .map tbody th{padding:clamp(6px,1.25vh,14px) clamp(12px,1.2vw,22px);text-align:left;vertical-align:middle;font-size:var(--fs-rotulo);font-weight:400;line-height:1.3;color:var(--text)}
+#bulbe-presentation .map tbody tr+tr>*{border-top:1px solid var(--line)}
+#bulbe-presentation .map td.mede{font-weight:600;color:var(--green-text)}
+#bulbe-presentation .map-flow{display:flex;align-items:center;gap:12px;padding:0;border:0;background:transparent;font-size:var(--fs-destaque);font-weight:600;letter-spacing:-.02em;color:var(--text);white-space:nowrap;text-align:left}
+#bulbe-presentation .map-flow .j-dot{width:clamp(32px,5vh,44px);height:clamp(32px,5vh,44px);margin:0;flex:none;font-size:var(--fs-interface)}
+#bulbe-presentation .map tbody tr:last-child .j-dot{box-shadow:0 0 0 2px var(--accent),var(--card-shadow)}
+#bulbe-presentation .map-flow:hover .j-dot{transform:scale(1.08)}
+#bulbe-presentation .converge{display:flex;align-items:center;gap:16px;margin:clamp(12px,2.4vh,28px) 0 0;padding:clamp(12px,2vh,20px) clamp(16px,1.6vw,26px);border-radius:var(--bulbe-raio-painel);
+  background:var(--bulbe-azul);color:#fff;font-size:var(--fs-rotulo);line-height:1.35;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+#bulbe-presentation .converge strong{font-weight:600;color:var(--bulbe-verde)}
+#bulbe-presentation .converge-mark{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:var(--bulbe-verde);color:var(--bulbe-azul)}
+#bulbe-presentation .converge-mark svg{width:22px;height:22px}
+/* Conclusão 2: dúvida → resposta em cada fluxo */
+#bulbe-presentation .j-doubt{font-size:var(--fs-rotulo);font-style:italic;line-height:1.3;color:var(--muted)}
+#bulbe-presentation .slide-close .journey .solve{font-weight:600;color:var(--green-text)}
+#bulbe-presentation .thanks{margin:clamp(20px,5vh,56px) 0 0;font-size:var(--fs-destaque);font-weight:600;letter-spacing:-.02em;color:var(--headline)}
+#bulbe-presentation .thanks span{margin-left:10px;font-size:var(--fs-rotulo);font-weight:400;letter-spacing:0;color:var(--muted)}
+
 /* Notebook baixo / projetor */
 @media (max-height:640px){
   #bulbe-presentation .meta{margin-top:12px}
@@ -332,7 +386,13 @@
 @media (max-width:820px){
   #bulbe-presentation .deck-bar{grid-template-columns:auto 1fr auto;padding:0 12px;gap:10px}
   #bulbe-presentation .deck-seg{max-width:none;justify-self:stretch}
-  #bulbe-presentation .slide,#bulbe-presentation .slide-cover,#bulbe-presentation .slide-close,#bulbe-presentation .slide-problem{grid-template-columns:minmax(0,1fr);align-content:start;justify-items:center;row-gap:28px;padding:28px 16px 40px;overflow-y:auto;overscroll-behavior:contain}
+  #bulbe-presentation .journey .j-item{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center}
+  #bulbe-presentation .journey .j-item .j-dot{grid-row:span 4}
+  #bulbe-presentation .map thead{display:none}
+  #bulbe-presentation .map,#bulbe-presentation .map tbody,#bulbe-presentation .map tr,#bulbe-presentation .map td,#bulbe-presentation .map tbody th{display:block}
+  #bulbe-presentation .map td{padding-top:0;border-top:0!important}
+  #bulbe-presentation .map tbody th{padding-top:14px}
+  #bulbe-presentation .slide,#bulbe-presentation .slide-cover,#bulbe-presentation .slide-close,#bulbe-presentation .slide-problem,#bulbe-presentation .slide-numbers,#bulbe-presentation .slide-doubts,#bulbe-presentation .slide-map{grid-template-columns:minmax(0,1fr);align-content:start;justify-items:center;row-gap:28px;padding:28px 16px 40px;overflow-y:auto;overscroll-behavior:contain}
   #bulbe-presentation .copy{max-width:600px;width:100%}
   #bulbe-presentation .chapters{justify-self:stretch;max-width:none}
   #bulbe-presentation .journey{grid-template-columns:1fr;gap:18px}
@@ -390,7 +450,9 @@ const ICON={
 /* Roteiro da apresentação */
 const slides=[
  {id:'inicio',tab:'Início',kind:'cover'},
- {id:'problema',tab:'Problema',kind:'problem'},
+ {id:'bulbe',tab:'A Bulbe',chap:'Contexto',kind:'numbers'},
+ {id:'problema',tab:'Problema',chap:'Contexto',kind:'problem'},
+ {id:'jornada',tab:'Jornada',chap:'Contexto',kind:'doubts'},
  {id:'cadastro',tab:'Cadastro',kind:'live',screen:'cadastro',n:'01',persona:'Helena Martins',title:'Cadastro e comunicação.',
   lead:'O cliente confirma os dados e escolhe onde quer ser avisado.',
   points:['Dados revisados antes de confirmar','Aviso no canal preferido'],status:'Ao vivo'},
@@ -406,10 +468,40 @@ const slides=[
  {id:'familia',tab:'Plano Família',kind:'live',screen:'familia',n:'05',persona:'Carlos Vicente',title:'A família acompanha junto.',
   lead:'O cliente convida pessoas de confiança para acompanhar a fatura.',
   points:['Até 4 pessoas por plano','Só entra quem aceitar'],status:'Ao vivo'},
+ {id:'causa-indicador',tab:'Da causa ao indicador',chap:'Conclusão',kind:'map'},
  {id:'conclusao',tab:'Conclusão',kind:'close'}
 ];
+slides.forEach(s=>{s.chap??=s.tab;});
+const chapters=[...new Set(slides.map(s=>s.chap))];
 const flows=slides.filter(s=>s.n);
-const SOLVES={cadastro:'Aviso no canal certo',onboarding:'Duas contas, sem susto','fatura-zero':'Primeira fatura explicada',pontos:'Pagar em dia compensa',familia:'Família acompanha junto'};
+/* Dúvida de cada persona (docs/historias*.md e docs/jornada.md) e a resposta que o fluxo dá */
+const SOLVES={
+ cadastro:{q:'Meu cadastro deu certo?',a:'Aviso no canal certo'},
+ onboarding:{q:'Vou pagar duas contas?',a:'Duas contas, sem susto'},
+ 'fatura-zero':{q:'Preciso pagar essa fatura?',a:'Primeira fatura explicada'},
+ pontos:{q:'Posso deixar para depois?',a:'Pagar em dia compensa'},
+ familia:{q:'Que boleto é esse?',a:'Família acompanha junto'}};
+/* Contexto: Bulbe & Ibmec, setembro/2026 (Abertura, "A companhia em números") */
+const NUMBERS=[
+ ['60 mil','clientes ativos'],
+ ['214 mil','consumidores: 1 em cada 100 famílias mineiras'],
+ ['66,6 mil','faturas emitidas por mês'],
+ ['713','cidades em Minas Gerais'],
+ ['R$ 38 mi','em economia gerada'],
+ ['17','usinas conectadas']];
+/* Jornada: fases de docs/jornada.md com a evidência da Bulbe de cada uma */
+const DOUBTS=[
+ {phase:'Adesão',q:'Meu cadastro deu certo?',ev:'<b>Até 20 dias</b> sem comunicação no onboarding'},
+ {phase:'Espera pela conexão',q:'Por que ainda pago a Cemig?',ev:'<b>~20%</b> das mensagens de WhatsApp falham'},
+ {phase:'Chegada da 1ª fatura',q:'Essa cobrança é verdadeira?',ev:'<b>Fatura antiga</b> sem clareza de custos e economia'},
+ {phase:'Pagamento',q:'Posso deixar para depois?',ev:'<b>32,4%</b> não pagam a 1ª fatura'}];
+/* Conclusão: de onde vem cada fluxo e o que a Bulbe pode medir nele */
+const MAP={
+ cadastro:{trava:'Mensagem que não chega',faz:'Cliente escolhe e confirma o canal de aviso',mede:'Contatos confirmados por canal'},
+ onboarding:{trava:'Silêncio e susto com as 2 contas',faz:'Avisa das 2 contas e mostra o ciclo',mede:'Clientes que confirmaram “Entendi”'},
+ 'fatura-zero':{trava:'Fatura difícil de entender',faz:'Fatura de R$ 0,00 explica antes da cobrança',mede:'Quem viu a explicação até o fim'},
+ pontos:{trava:'Pagamento adiado',faz:'Conta paga em dia vira pontos e desconto',mede:'Contas pagas até o vencimento'},
+ familia:{trava:'Conta que a família não conhece',faz:'Pessoas de confiança acompanham a fatura',mede:'Convites aceitos'}};
 
 function kicker(s){return `<p class="kicker"><span class="num">${s.n}</span><span class="sep"></span><span>Persona: ${esc(s.persona)}</span></p>`;}
 const SB_ICONS='<svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 2.6c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .8C5.2.8 2.7 1.9.8 3.7L2 5c1.6-1.5 3.7-2.4 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.6 6.6 0 0 0 8 4.4c-1.8 0-3.4.7-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3zm0 3.5c-.5 0-.9.2-1.2.5L8 11.6l1.2-1.4c-.3-.3-.7-.5-1.2-.5z"/></svg><svg viewBox="0 0 27 12" aria-hidden="true"><rect x=".5" y=".5" width="23" height="11" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2" y="2" width="17" height="8" rx="2"/><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill-opacity=".45"/></svg>';
@@ -437,21 +529,41 @@ function render(s,i){
    <ul class="points">${s.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
    <div class="meta"><span class="chip"><span class="dot"></span>${esc(s.status)}</span>${toggle}<button type="button" class="chip chip-btn" data-restart>${ICON.restart}Reiniciar tela</button>${s.wireframes?wfNav(true):''}</div></div>
    ${device(`<div class="screen-loading">Carregando…</div>${s.wireframes?gallery(s.wireframes,'Wireframe de referência').replace('class="wf"','class="wf" hidden'):''}`)}`;
+ }else if(s.kind==='numbers'){
+  el.innerHTML=`<div class="copy"><p class="kicker">Contexto · Bulbe Energia</p>
+   <h2 class="headline">A Bulbe já chega a 1 em cada 100 famílias mineiras.</h2>
+   <p class="lead">Usinas próprias geram a energia. O cliente assina, economiza na conta de luz e continua pagando à Cemig a parte da rede.</p>
+   <p class="bignum-src">Fonte: apresentação Bulbe &amp; Ibmec, setembro/2026</p></div>
+   <ul class="stats rise">${NUMBERS.map(([v,l],k)=>`<li style="--i:${k}"><b>${esc(v)}</b><span>${esc(l)}</span></li>`).join('')}</ul>`;
  }else if(s.kind==='problem'){
   el.innerHTML=`<div class="copy"><p class="kicker">O problema</p>
    <p class="bignum" aria-label="32,4 por cento">32,4%</p>
    <p class="bignum-line">de inadimplência na primeira fatura.</p>
-   <p class="bignum-src">Set/2025 a jul/2026 · material da aula 19, caso Bulbe Energia</p></div>`;
+   <ul class="contrast"><li><b>1,6%</b>de inadimplência na carteira com mais de 4 meses</li><li><b>2,1%</b>de churn nessa mesma carteira</li></ul>
+   <p class="verdict">O problema está na entrada, não na carteira.</p>
+   <p class="bignum-src">Set/2025 a jul/2026 · apresentação Bulbe &amp; Ibmec, setembro/2026 · carteira PF</p></div>`;
+ }else if(s.kind==='doubts'){
+  el.innerHTML=`<div class="copy"><p class="kicker">A jornada do cliente novo</p>
+   <h2 class="headline concl-title">Entre a adesão e a 1ª fatura, o cliente fica com dúvidas e sem resposta.</h2>
+   <ol class="journey is-doubt" style="--n:${DOUBTS.length}">${DOUBTS.map((d,k)=>`<li><div class="j-item"><span class="j-dot">${k+1}</span><span class="j-phase">${esc(d.phase)}</span><strong class="j-q">“${esc(d.q)}”</strong><span class="j-ev">${d.ev}</span></div></li>`).join('')}</ol>
+   <p class="bignum-src">Evidências: Bulbe &amp; Ibmec, setembro/2026 · dúvidas: personas do squad (docs/jornada.md)</p></div>`;
+ }else if(s.kind==='map'){
+  el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
+   <h2 class="headline">Da causa ao indicador.</h2>
+   <table class="map"><thead><tr><th scope="col">Fluxo</th><th scope="col">Onde o cliente trava</th><th scope="col">O que o app faz</th><th scope="col">O que a Bulbe pode medir</th></tr></thead>
+   <tbody>${flows.map(f=>{const m=MAP[f.id];return `<tr><th scope="row"><button type="button" class="map-flow" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span>${esc(f.tab)}</button></th><td>${esc(m.trava)}</td><td>${esc(m.faz)}</td><td class="mede">${esc(m.mede)}</td></tr>`;}).join('')}</tbody></table>
+   <p class="converge"><span class="converge-mark" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Os cinco sinais levam ao mesmo indicador: <strong>1ª fatura paga até o vencimento</strong>. Ponto de partida: 32,4% de inadimplência.</span></p></div>`;
  }else if(s.kind==='close'){
   el.innerHTML=`<div class="copy"><p class="kicker"><span class="num">Conclusão</span></p>
    <h2 class="headline concl-title">Quem tem dúvida adia o pagamento: por isso, cada fluxo responde a uma dúvida antes que ela vire inadimplência.</h2>
    <p class="journey-ends"><span>Adesão</span><span>1ª fatura paga</span></p>
-   <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="solve">${esc(SOLVES[f.id])}</span></button></li>`).join('')}</ol></div>`;
+   <ol class="journey">${flows.map(f=>`<li><button type="button" data-goto="${slides.indexOf(f)}" aria-label="Ir para ${esc(f.tab)}"><span class="j-dot">${f.n}</span><strong>${esc(f.tab)}</strong><span class="j-doubt">“${esc(SOLVES[f.id].q)}”</span><span class="solve">${esc(SOLVES[f.id].a)}</span></button></li>`).join('')}</ol>
+   <p class="thanks">Obrigado. <span>Luiza, João Gabriel, André, Ana Carolina e Sérgio · Squad 01</span></p></div>`;
  }
  return el;
 }
 const els=slides.map((s,i)=>{const el=render(s,i);stage.append(el);return el;});
-seg.insertAdjacentHTML('beforeend',slides.map((s,i)=>`<button type="button" data-goto="${i}">${esc(s.tab)}</button>`).join(''));
+seg.insertAdjacentHTML('beforeend',chapters.map(c=>`<button type="button" data-goto="${slides.findIndex(s=>s.chap===c)}" data-chap="${esc(c)}">${esc(c)}</button>`).join(''));
 progress.innerHTML=slides.map((s,i)=>`<button type="button" data-goto="${i}" aria-label="Ir para ${i+1}: ${esc(s.tab)}"></button>`).join('');
 root.classList.remove('is-loading');
 
@@ -548,7 +660,7 @@ if(fromHash>=0)index=fromHash;else if(Number.isInteger(saved)&&saved>=0&&saved<s
 function go(i,{focus=false}={}){
  i=Math.max(0,Math.min(slides.length-1,i));const prev=index;index=i;
  els.forEach((el,j)=>{const active=j===i;el.classList.toggle('is-active',active);el.classList.toggle('is-before',j<i);el.inert=!active;el.setAttribute('aria-hidden',String(!active));});
- seg.querySelectorAll('button').forEach((b,j)=>j===i?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current'));
+ seg.querySelectorAll('button').forEach(b=>b.dataset.chap===slides[i].chap?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current'));
  progress.querySelectorAll('button').forEach((b,j)=>{b.classList.toggle('done',j<i);j===i?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current');});
  root.querySelector('.deck-count').textContent=`${i+1} / ${slides.length}`;
  root.querySelector('[data-direction="-1"]').disabled=i===0;root.querySelector('[data-direction="1"]').disabled=i===slides.length-1;

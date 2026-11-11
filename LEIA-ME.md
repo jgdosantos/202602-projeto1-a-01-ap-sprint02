@@ -4,16 +4,21 @@
 
 Abra o arquivo `index.html` desta pasta no Chrome, Edge ou Safari. A apresentação já inclui as telas, imagens, fontes, wireframes e dados fictícios, e funciona sem internet.
 
-A apresentação tem oito seções:
+A apresentação tem onze slides, agrupados em oito abas na barra superior:
 
 1. Início: capa com curso, turma, primeiros nomes da equipe e a lista dos fluxos
-2. Problema: abertura breve com o número central, 32,4% de inadimplência na primeira fatura
-3. Cadastro: Helena Martins
-4. Onboarding: Marina (HU04)
-5. Fatura Zero: Mariana Dulce
-6. Pontos: Cláudia Ramos
-7. Plano Família: Carlos Vicente
-8. Conclusão: a frase que resume o racional, a jornada dos cinco fluxos (da adesão à 1ª fatura paga)
+2. Contexto · A Bulbe: a companhia em números (60 mil clientes, 214 mil consumidores, 66,6 mil faturas/mês, 713 cidades, R$ 38 mi de economia, 17 usinas)
+3. Contexto · Problema: 32,4% de inadimplência na primeira fatura contra 1,6% de inadimplência e 2,1% de churn na carteira com mais de 4 meses: o problema está na entrada
+4. Contexto · Jornada: as quatro fases (adesão, espera, 1ª fatura, pagamento), a dúvida do cliente em cada uma e a evidência da Bulbe
+5. Cadastro: Helena Martins
+6. Onboarding: Marina (HU04)
+7. Fatura Zero: Mariana Dulce
+8. Pontos: Cláudia Ramos
+9. Plano Família: Carlos Vicente
+10. Conclusão · Da causa ao indicador: tabela com onde o cliente trava, o que cada fluxo faz e o que a Bulbe pode medir; os cinco sinais levam à 1ª fatura paga até o vencimento
+11. Conclusão: a frase que resume o racional e a jornada dos cinco fluxos, com a dúvida que cada um responde
+
+Os números de contexto vêm da apresentação Bulbe & Ibmec de setembro/2026 (`wireframes-bulbe/Apresentac_a_o_IBMEC_-_Setembro_26.pdf`) e do enunciado da Etapa 2. As dúvidas são das personas do squad (`originais/docs/historias*.md` e `jornada.md`).
 
 Os dados da capa (Ibmec BH, Turma A, Squad 01, 2º semestre de 2026, cliente Bulbe Energia e equipe) vêm de `originais/README.md`. O 32,4% e o período vêm de `originais/docs/jornada.md` e do mesmo README.
 
