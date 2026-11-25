@@ -8,15 +8,15 @@ A apresentação tem onze slides, agrupados em oito abas na barra superior:
 
 1. Início: capa com curso, turma, primeiros nomes da equipe e a lista dos fluxos
 2. Contexto · A Bulbe: a companhia em números (60 mil clientes, 214 mil consumidores, 66,6 mil faturas/mês, 713 cidades, R$ 38 mi de economia, 17 usinas)
-3. Contexto · Problema: 32,4% de inadimplência na primeira fatura contra 1,6% de inadimplência e 2,1% de churn na carteira com mais de 4 meses: o problema está na entrada
+3. Contexto · Problema: 32,4% de inadimplência na primeira fatura contra 1,6% de inadimplência e 2,1% de churn na carteira com mais de 4 meses: o problema está na entrada. Embaixo, a conta anual: 2,1% a cada 4 meses dá cerca de 6% de churn em 1 ano (3 períodos; 1 − 0,979³ ≈ 6,2%)
 4. Contexto · Jornada: as quatro fases (adesão, espera, 1ª fatura, pagamento), a dúvida do cliente em cada uma e a evidência da Bulbe
 5. Cadastro: Helena Martins
 6. Onboarding: Marina (HU04)
-7. Fatura Zero: Mariana Dulce, o clímax da apresentação, com o selo "Principal aposta do squad"
+7. Fatura Zero: Mariana Dulce, o clímax da apresentação, com o selo "Principal solução do squad"
 8. Pontos: Cláudia Ramos
 9. Plano Família: Carlos Vicente (desfecho, antes da conclusão)
-10. Conclusão · Da trava à solução: onde o cliente trava e a solução do squad em cada fluxo, com a Fatura Zero em destaque; tudo leva à 1ª fatura paga em dia
-11. Conclusão: a frase que resume o racional e a dúvida que cada fluxo responde
+10. Conclusão: a frase que resume o racional e a dúvida que cada fluxo responde
+11. Contracapa: repete a capa no fim (fica na aba Conclusão)
 
 Os números de contexto vêm da apresentação Bulbe & Ibmec de setembro/2026 (`wireframes-bulbe/Apresentac_a_o_IBMEC_-_Setembro_26.pdf`) e do enunciado da Etapa 2. As dúvidas são das personas do squad (`originais/docs/historias*.md` e `jornada.md`).
 
@@ -32,7 +32,7 @@ O Plano Família mostra as telas de `pages/PlanoFamilia/`: apresentação do pla
 
 Botões das telas que levam para outra página do app (por exemplo, "Ir para minha conta" na Fatura Zero ou "Início" em Pontos) abrem a seção correspondente da apresentação.
 
-Para a demonstração, os campos de texto já vêm preenchidos com dados fictícios: no Cadastro, e-mail de acesso `teste@email.com`, Helena Martins, CPF 123.456.789-09, (31) 98765-4321 e senha Bulbe@2026; no Plano Família, Maria Souza e (31) 98888-7777. Isso é feito só na apresentação (`PREFILL` em `src/presentation-shell.html`); os arquivos em `originais/` não mudam. Caixas de aceite continuam para marcar na hora.
+Para a demonstração, os campos de texto já vêm preenchidos com dados fictícios: no Cadastro, e-mail de acesso `teste@email.com`, Helena Martins, CPF 123.456.789-09, (31) 98765-4321 e senha Bulbe@2026; no Onboarding, o 4º dígito do código (4827; o WhatsApp e os outros três dígitos já vêm do original); no Plano Família, Maria Souza e (31) 98888-7777. Isso é feito só na apresentação (`PREFILL` em `src/presentation-shell.html`); os arquivos em `originais/` não mudam. Caixas de aceite continuam para marcar na hora.
 
 Os resgates, convites e pagamentos são demonstrativos. Nenhum dado é enviado à Bulbe.
 
