@@ -537,9 +537,7 @@ function wfNav(hidden){return `<div class="wf-nav"${hidden?' hidden':''} role="g
 function render(s,i){
  const el=document.createElement('section');el.className='slide slide-'+s.kind;el.id='slide-'+s.id;el.dataset.index=i;el.setAttribute('aria-label',`${i+1} de ${slides.length}: ${s.tab}`);
  if(s.kind==='cover'){
-  el.innerHTML=`<div class="copy">
-   <img class="cover-logo" src="${logo}" alt="Bulbe">
-   <h1 class="headline"><span>Sprint II.</span></h1>
+  el.innerHTML=`<div class="copy">   <h1 class="headline cover-title"><img src="${logo}" alt="Bulbe" style="display:block;width:clamp(220px,32vw,520px);height:auto"></h1>
    <p class="cover-meta">Projeto em Ciência de Dados I<br>Ibmec BH · Turma A · Squad 01</p>
    <p class="cover-team">Luiza, João Gabriel, André, Ana Carolina e Sérgio</p>
   </div>
